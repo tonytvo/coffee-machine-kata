@@ -69,8 +69,7 @@ public class CoffeeMachine {
     public static void updateCosts() {
         for (Drink d : drinkList) {
             double currCost = 0;
-            Map<String, Integer> currRecipe = d.getRecipe();
-            Recipe recipe = new Recipe(currRecipe);
+            Recipe recipe = d.getRecipeTemp();
             for (Ingredient i : ingredientList) {
                 if (recipe.containsReceipt(i)) {
                     currCost += i.getCost() * recipe.getQuantity(i);
@@ -83,7 +82,7 @@ public class CoffeeMachine {
     public static void makeDrink(Drink drink, CliView cliView) {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
-            Recipe recipe = new Recipe(drink.getRecipe());
+            Recipe recipe = drink.getRecipeTemp();
             for (Ingredient i : ingredientList) {
                 if (recipe.containsReceipt(i)) {
                     i.setStock(i.getStock() - recipe.getQuantity(i));
