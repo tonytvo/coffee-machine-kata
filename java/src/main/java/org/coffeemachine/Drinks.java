@@ -1,5 +1,6 @@
 package org.coffeemachine;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Drinks {
@@ -7,6 +8,10 @@ public class Drinks {
 
     public Drinks(List<Drink> drinkList) {
         this.drinkList = drinkList;
+    }
+
+    static void sort(Drinks drinks) {
+        Collections.sort(drinks.getDrinkList());
     }
 
     public void addDrink(String name, String[] recipe) {
