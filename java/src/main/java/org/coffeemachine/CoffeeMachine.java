@@ -55,8 +55,7 @@ public class CoffeeMachine {
         if (drinkInput <= 0 || drinkInput > drinkList.size()) {
             throw new IOException(); // legal, but invalid input
         }
-        int drinkId = drinkInput - 1;
-        return drinkId;
+        return drinkInput - 1;
     }
 
     public static void updateMakeable() {
