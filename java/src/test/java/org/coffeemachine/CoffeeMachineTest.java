@@ -1,6 +1,5 @@
 package org.coffeemachine;
 
-import com.google.common.collect.ImmutableList;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,9 +9,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class CoffeeMachineTest {
 
