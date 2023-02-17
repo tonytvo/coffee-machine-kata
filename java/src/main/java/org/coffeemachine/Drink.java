@@ -14,6 +14,11 @@ public class Drink implements Comparable<Drink> {
         setRecipe(recipe);
     }
 
+    static Recipe getRecipeTemp(Drink d) {
+        Map<String, Integer> currRecipe = d.getRecipe();
+        return new Recipe(currRecipe);
+    }
+
     public int compareTo(Drink drink) {
         return name.compareTo(drink.getName());
     }

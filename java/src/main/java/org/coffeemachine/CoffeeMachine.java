@@ -55,7 +55,7 @@ public class CoffeeMachine {
 
     public static void updateMakeable() {
         for (Drink d : drinkList) {
-            Recipe recipe = getRecipeTemp(d);
+            Recipe recipe = Drink.getRecipeTemp(d);
             for (Ingredient i : ingredientList) {
                 boolean makeable = recipe.isMakeable(i);
                 d.setMakeable(makeable);
@@ -64,11 +64,6 @@ public class CoffeeMachine {
                 }
             }
         }
-    }
-
-    private static Recipe getRecipeTemp(Drink d) {
-        Map<String, Integer> currRecipe = d.getRecipe();
-        return new Recipe(currRecipe);
     }
 
     public static void updateCosts() {
