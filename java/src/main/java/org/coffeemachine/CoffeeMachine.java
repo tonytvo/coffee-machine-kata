@@ -83,9 +83,10 @@ public class CoffeeMachine {
     public static void makeDrink(Drink drink, CliView cliView) {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
+            Recipe recipe = new Recipe(drink.getRecipe());
             for (Ingredient i : ingredientList) {
-                if (new Recipe(drink.getRecipe()).containsReceipt(i)) {
-                    i.setStock(i.getStock() - new Recipe(drink.getRecipe()).getQuantity(i));
+                if (recipe.containsReceipt(i)) {
+                    i.setStock(i.getStock() - recipe.getQuantity(i));
                 }
             }
         } else {
