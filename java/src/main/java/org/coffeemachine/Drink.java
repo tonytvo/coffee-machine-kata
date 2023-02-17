@@ -24,8 +24,7 @@ public class Drink implements Comparable<Drink> {
                 recipeQuantityByName.put(s, 1);// insert first occurrence of ingredient
             }
         }
-        Recipe recipeTemp1 = new Recipe(recipeQuantityByName);
-        return recipeTemp1;
+        return new Recipe(recipeQuantityByName);
     }
 
     Recipe getRecipeTemp() {
