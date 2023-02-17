@@ -13,13 +13,17 @@ public class CoffeeMachine {
     private static final List<Ingredient> ingredientList = new ArrayList<>();
 
     public static void main(String[] args) {
+        initModel();
+        CliView cliView = new CliView();
+        cliView.askForSelection(ingredientList, drinkList);
+        startIO(cliView);
+    }
+
+    private static void initModel() {
         addAllIngredients();
         addAllDrinks();
         updateCosts();
         updateMakeable();
-        CliView cliView = new CliView();
-        cliView.askForSelection(ingredientList, drinkList);
-        startIO(cliView);
     }
 
     public static void startIO(CliView cliView) {
