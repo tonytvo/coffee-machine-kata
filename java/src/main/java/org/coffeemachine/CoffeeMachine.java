@@ -19,10 +19,10 @@ public class CoffeeMachine {
         updateCosts();
         updateMakeable();
         new CliView().askForSelection(ingredientList, drinkList);
-        startIO();
+        startIO(new CliView());
     }
 
-    public static void startIO() {
+    public static void startIO(CliView cliView) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input = "";
 
@@ -42,12 +42,12 @@ public class CoffeeMachine {
                 } else if (Integer.parseInt(input) > 0 && Integer.parseInt(input) <= drinkList.size()) { // dynamic
                                                                                                          // drink menu
                                                                                                          // selection
-                    makeDrink(drinkList.get(Integer.parseInt(input) - 1), new CliView());
+                    makeDrink(drinkList.get(Integer.parseInt(input) - 1), cliView);
                 } else {
                     throw new IOException(); // legal, but invalid input
                 }
             } catch (Exception e) {
-                new CliView().displayInvalidSelection(input);
+                cliView.displayInvalidSelection(input);
             }
         }
     }
