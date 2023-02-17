@@ -31,7 +31,7 @@ public class Recipe {
     }
 
     boolean isMakeable(Ingredient i) {
-        return !getQuantityByRecipeName().containsKey(i.getName()) || i.getStock() >= getQuantityByRecipeName().get(i.getName());
+        return !containsReceipt(i) || i.getStock() >= getQuantityByRecipeName().get(i.getName());
     }
 
     private Map<String, Integer> getQuantityByRecipeName() {
