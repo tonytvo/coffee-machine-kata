@@ -36,7 +36,7 @@ public class Model {
         }
     }
 
-    public static void restockIngredients(CliView cliView) {
+    public static void restockIngredients() {
         for (Ingredient i : ingredientList) {
             i.setStock(10);
         }

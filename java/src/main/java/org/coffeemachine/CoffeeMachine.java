@@ -28,7 +28,7 @@ public class CoffeeMachine {
                     break;
                 }
                 if (input.equals("r")) {
-                    Model.restockIngredients(cliView);
+                    Model.restockIngredients();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input);
                     Model.makeDrink(Model.drinkList.get(drinkId), cliView);
