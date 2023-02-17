@@ -48,7 +48,7 @@ public class Drink implements Comparable<Drink> {
         return currCost;
     }
 
-    Recipe getRecipe() {
+     private Recipe getRecipe() {
         return recipe;
     }
 
