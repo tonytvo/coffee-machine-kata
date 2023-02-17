@@ -70,7 +70,7 @@ public class CoffeeMachine {
             double currCost = 0;
             Recipe recipe = d.getRecipe();
             for (Ingredient i : ingredientList) {
-                if (recipe.containsReceipt(i)) {
+                if (recipe.containsRecipe(i)) {
                     currCost += i.getCost() * recipe.getQuantity(i);
                 }
             }
@@ -83,7 +83,7 @@ public class CoffeeMachine {
             cliView.displayDispensingDrink(drink.getName());
             Recipe recipe = drink.getRecipe();
             for (Ingredient i : ingredientList) {
-                if (recipe.containsReceipt(i)) {
+                if (recipe.containsRecipe(i)) {
                     i.setStock(i.getStock() - recipe.getQuantity(i));
                 }
             }

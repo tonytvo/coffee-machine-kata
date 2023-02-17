@@ -26,12 +26,12 @@ public class Recipe {
         return getQuantityByRecipeName().get(i.getName());
     }
 
-    boolean containsReceipt(Ingredient i) {
+    boolean containsRecipe(Ingredient i) {
         return getQuantityByRecipeName().containsKey(i.getName());
     }
 
     boolean isMakeable(Ingredient i) {
-        return !containsReceipt(i) || i.getStock() >= getQuantityByRecipeName().get(i.getName());
+        return !containsRecipe(i) || i.getStock() >= getQuantityByRecipeName().get(i.getName());
     }
 
     private Map<String, Integer> getQuantityByRecipeName() {
