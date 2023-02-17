@@ -11,8 +11,7 @@ public class CliView {
         }
 
         System.out.println("\nMenu:");
-        StringBuffer menu = drinks.getDrinksMenu();
-        System.out.print(menu);
+        System.out.print(drinks.getDrinksMenu());
 
         System.out.print("\nYour selection: ");
     }
