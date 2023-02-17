@@ -67,15 +67,20 @@ public class CoffeeMachine {
 
     public static void updateCosts() {
         for (Drink d : drinkList) {
-            double currCost = 0;
-            Recipe recipe = d.getRecipe();
-            for (Ingredient i : ingredientList) {
-                if (recipe.containsRecipe(i)) {
-                    currCost += i.getCost() * recipe.getQuantity(i);
-                }
-            }
+            double currCost = calculateCost(d);
             d.setCost(currCost);
         }
+    }
+
+    private static double calculateCost(Drink d) {
+        double currCost = 0;
+        Recipe recipe = d.getRecipe();
+        for (Ingredient i : ingredientList) {
+            if (recipe.containsRecipe(i)) {
+                currCost += i.getCost() * recipe.getQuantity(i);
+            }
+        }
+        return currCost;
     }
 
     public static void makeDrink(Drink drink, CliView cliView) {
