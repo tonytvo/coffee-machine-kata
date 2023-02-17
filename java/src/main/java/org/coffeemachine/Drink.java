@@ -12,19 +12,7 @@ public class Drink implements Comparable<Drink> {
 
     public Drink(String name, String[] recipe) {
         this.name = name;
-        this.recipeTemp = convertToRecipe(recipe);
-    }
-
-    private static Recipe convertToRecipe(String[] recipe) {
-        Map<String, Integer> recipeQuantityByName = new HashMap<>();
-        for (String s : recipe) {
-            if (recipeQuantityByName.containsKey(s)) {
-                recipeQuantityByName.put(s, recipeQuantityByName.get(s) + 1);// increment if multiple units
-            } else {
-                recipeQuantityByName.put(s, 1);// insert first occurrence of ingredient
-            }
-        }
-        return new Recipe(recipeQuantityByName);
+        this.recipeTemp = Recipe.convertToRecipe(recipe);
     }
 
     Recipe getRecipeTemp() {
