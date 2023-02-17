@@ -11,3 +11,7 @@ https://simcap.github.io/coffeemachine/
   - silent finish of the coffee machine kata (part 5)
 - [functional programming, DDD, and hexagonal architecture implementation](https://github.com/albertllousas/coffee-machine-kata-ddd)
 - [celtric implementation](https://github.com/celtric/coffee-machine-kata-java)
+- https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf
+- https://blog.ninjaferret.co.uk/2015/06/05/Introducing-Functional-Calisthenics.html
+- https://github.com/RefactoringCombos/ArlosCommitNotation/blob/main/Learning%20Path.md
+- https://jay.bazuzi.com/why-acn/
