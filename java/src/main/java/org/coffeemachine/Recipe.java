@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Recipe {
-    private final Map<String, Integer> currRecipe;
+    private final Map<String, Integer> quantityByRecipeName;
 
     public Recipe(Map<String, Integer> currRecipe) {
-        this.currRecipe = currRecipe;
+        this.quantityByRecipeName = currRecipe;
     }
 
     static Recipe fromRecipeNames(String[] recipe) {
@@ -23,18 +23,18 @@ public class Recipe {
     }
 
     Integer getQuantity(Ingredient i) {
-        return getCurrRecipe().get(i.getName());
+        return getQuantityByRecipeName().get(i.getName());
     }
 
     boolean containsReceipt(Ingredient i) {
-        return getCurrRecipe().containsKey(i.getName());
+        return getQuantityByRecipeName().containsKey(i.getName());
     }
 
     boolean isMakeable(Ingredient i) {
-        return !getCurrRecipe().containsKey(i.getName()) || i.getStock() >= getCurrRecipe().get(i.getName());
+        return !getQuantityByRecipeName().containsKey(i.getName()) || i.getStock() >= getQuantityByRecipeName().get(i.getName());
     }
 
-    private Map<String, Integer> getCurrRecipe() {
-        return currRecipe;
+    private Map<String, Integer> getQuantityByRecipeName() {
+        return quantityByRecipeName;
     }
 }
