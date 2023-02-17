@@ -13,7 +13,7 @@ public class Drink implements Comparable<Drink> {
     public Drink(String name, String[] recipe) {
         this.name = name;
 
-        Map<String, Integer> recipeQuantityByName = this.recipe;
+        Map<String, Integer> recipeQuantityByName = new HashMap<>();
         for (String s : recipe) {
             if (recipeQuantityByName.containsKey(s)) {
                 recipeQuantityByName.put(s, recipeQuantityByName.get(s) + 1);// increment if multiple units
