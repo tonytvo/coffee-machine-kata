@@ -10,10 +10,10 @@ public class CoffeeMachine {
         Model.initModel();
         CliView cliView = new CliView();
         cliView.askForSelection(Model.ingredientList, new Drinks(Model.drinkList));
-        startIO(cliView);
+        startIO(cliView, new Drinks(Model.drinkList));
     }
 
-    public static void startIO(CliView cliView) {
+    public static void startIO(CliView cliView, Drinks drinks) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input = "";
 
@@ -31,10 +31,10 @@ public class CoffeeMachine {
                     Model.restockIngredients();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input);
-                    Model.makeDrink(new Drinks(Model.drinkList).getDrink(drinkId), cliView);
+                    Model.makeDrink(drinks.getDrink(drinkId), cliView);
                 }
-                new Drinks(Model.drinkList).updateMakeable(Model.ingredientList);
-                cliView.askForSelection(Model.ingredientList, new Drinks(Model.drinkList));
+                drinks.updateMakeable(Model.ingredientList);
+                cliView.askForSelection(Model.ingredientList, drinks);
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }
