@@ -18,7 +18,7 @@ public class CoffeeMachine {
         addAllDrinks();
         updateCosts();
         updateMakeable();
-        display();
+        askForSelection();
         startIO();
     }
 
@@ -52,7 +52,7 @@ public class CoffeeMachine {
         }
     }
 
-    public static void display() {
+    public static void askForSelection() {
         System.out.println("Inventory:");
         for (Ingredient i : ingredientList) {
             System.out.println(i.getName() + "," + i.getStock());
@@ -106,7 +106,7 @@ public class CoffeeMachine {
             System.out.println("Out of stock: " + drink.getName() + "\n");
         }
         updateMakeable();
-        display();
+        askForSelection();
     }
 
     public static void restockIngredients() {
@@ -114,7 +114,7 @@ public class CoffeeMachine {
             i.setStock(10);
         }
         updateMakeable();
-        display();
+        askForSelection();
     }
 
     public static void addIngredient(Ingredient ingredient) {
