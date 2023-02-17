@@ -67,7 +67,7 @@ public class CoffeeMachine {
     public static void makeDrink(Drink drink, CliView cliView) {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
-            Drink.make(drink, ingredientList);
+            drink.make(ingredientList);
         } else {
             cliView.displayOutOfStock(drink.getName());
         }
