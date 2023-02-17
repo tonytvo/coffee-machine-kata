@@ -61,7 +61,6 @@ public class CoffeeMachine {
                     d.setMakeable(true);
                 } else {
                     d.setMakeable(false);
-                    break;
                 }
             }
         }
