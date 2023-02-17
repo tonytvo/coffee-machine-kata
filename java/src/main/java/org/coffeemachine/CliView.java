@@ -4,14 +4,14 @@ import java.util.List;
 
 public class CliView {
 
-    public void askForSelection(List<Ingredient> ingredientList, List<Drink> drinkList) {
+    public void askForSelection(List<Ingredient> ingredientList, Drinks drinks) {
         System.out.println("Inventory:");
         for (Ingredient i : ingredientList) {
             System.out.println(i.getName() + "," + i.getStock());
         }
 
         System.out.println("\nMenu:");
-        StringBuffer menu = new Drinks(drinkList).getDrinksMenu();
+        StringBuffer menu = drinks.getDrinksMenu();
         System.out.print(menu);
 
         System.out.print("\nYour selection: ");

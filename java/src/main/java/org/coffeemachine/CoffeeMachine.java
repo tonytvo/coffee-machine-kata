@@ -9,7 +9,7 @@ public class CoffeeMachine {
     public static void main(String[] args) {
         Model.initModel();
         CliView cliView = new CliView();
-        cliView.askForSelection(Model.ingredientList, Model.drinkList);
+        cliView.askForSelection(Model.ingredientList, new Drinks(Model.drinkList));
         startIO(cliView);
     }
 
@@ -34,7 +34,7 @@ public class CoffeeMachine {
                     Model.makeDrink(new Drinks(Model.drinkList).getDrink(drinkId), cliView);
                 }
                 new Drinks(Model.drinkList).updateMakeable(Model.ingredientList);
-                cliView.askForSelection(Model.ingredientList, Model.drinkList);
+                cliView.askForSelection(Model.ingredientList, new Drinks(Model.drinkList));
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }
