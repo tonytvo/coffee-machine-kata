@@ -13,9 +13,9 @@ public class Drink implements Comparable<Drink> {
         this.recipe = Recipe.fromRecipeNames(recipe);
     }
 
-    static double calculateCost(Drink d, List<Ingredient> ingredientList1) {
+    double calculateCost(List<Ingredient> ingredientList1) {
         double currCost = 0;
-        Recipe recipe = d.getRecipe();
+        Recipe recipe = getRecipe();
         for (Ingredient i : ingredientList1) {
             if (recipe.containsRecipe(i)) {
                 currCost += i.getCost() * recipe.getQuantity(i);
