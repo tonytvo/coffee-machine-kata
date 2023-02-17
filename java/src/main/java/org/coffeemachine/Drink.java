@@ -14,8 +14,8 @@ public class Drink implements Comparable<Drink> {
         setRecipe(recipe);
     }
 
-    static Recipe getRecipeTemp(Drink d) {
-        Map<String, Integer> currRecipe = d.getRecipe();
+    Recipe getRecipeTemp() {
+        Map<String, Integer> currRecipe = getRecipe();
         return new Recipe(currRecipe);
     }
 
