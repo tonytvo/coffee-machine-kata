@@ -9,8 +9,8 @@ public class Drinks {
         this.drinkList = drinkList;
     }
 
-    static Drink getDrink(int drinkId, Drinks drinks) {
-        return drinks.getDrinkList().get(drinkId);
+    Drink getDrink(int drinkId) {
+        return getDrinkList().get(drinkId);
     }
 
     public void updateMakeable(List<Ingredient> ingredientList) {
