@@ -10,9 +10,10 @@ public class Model {
 
     static void initModel() {
         addAllIngredients();
-        addAllDrinks(new Drinks(drinkList));
-        new Drinks(drinkList).updateCosts(ingredientList);
-        new Drinks(drinkList).updateMakeable(ingredientList);
+        Drinks drinks = new Drinks(drinkList);
+        addAllDrinks(drinks);
+        drinks.updateCosts(ingredientList);
+        drinks.updateMakeable(ingredientList);
     }
 
     public static void makeDrink(Drink drink, CliView cliView) {
