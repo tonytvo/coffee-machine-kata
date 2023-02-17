@@ -1,5 +1,6 @@
 package org.coffeemachine;
 
+import com.google.common.collect.ImmutableList;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,6 +10,9 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CoffeeMachineTest {
 
@@ -30,9 +34,8 @@ public class CoffeeMachineTest {
     @Test
     public void
     givenQuitChoice_shouldQuit() {
-        String input = "q\n";
-        String displayText = runCoffeeMachine(input);
-        Approvals.verify(displayText);
+        String [] inputs = new String [] { "q\n" };
+        Approvals.verifyAll(inputs, CoffeeMachineTest::runCoffeeMachine);
     }
 
     private static String runCoffeeMachine(String input) {
