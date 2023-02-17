@@ -67,17 +67,21 @@ public class CoffeeMachine {
     public static void makeDrink(Drink drink, CliView cliView) {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
-            Recipe recipe = drink.getRecipe();
-            for (Ingredient i : ingredientList) {
-                if (recipe.containsRecipe(i)) {
-                    i.setStock(i.getStock() - recipe.getQuantity(i));
-                }
-            }
+            make(drink);
         } else {
             cliView.displayOutOfStock(drink.getName());
         }
         updateMakeable();
         cliView.askForSelection(ingredientList, drinkList);
+    }
+
+    private static void make(Drink drink) {
+        Recipe recipe = drink.getRecipe();
+        for (Ingredient i : ingredientList) {
+            if (recipe.containsRecipe(i)) {
+                i.setStock(i.getStock() - recipe.getQuantity(i));
+            }
+        }
     }
 
     public static void restockIngredients(CliView cliView) {
