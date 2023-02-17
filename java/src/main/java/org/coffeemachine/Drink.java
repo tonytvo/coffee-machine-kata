@@ -12,7 +12,7 @@ public class Drink implements Comparable<Drink> {
 
     public Drink(String name, String[] recipe) {
         this.name = name;
-        this.recipeTemp = Recipe.convertToRecipe(recipe);
+        this.recipeTemp = Recipe.fromRecipeNames(recipe);
     }
 
     Recipe getRecipeTemp() {

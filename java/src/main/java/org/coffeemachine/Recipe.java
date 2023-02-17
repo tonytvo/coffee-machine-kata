@@ -10,7 +10,7 @@ public class Recipe {
         this.currRecipe = currRecipe;
     }
 
-    static Recipe convertToRecipe(String[] recipe) {
+    static Recipe fromRecipeNames(String[] recipe) {
         Map<String, Integer> recipeQuantityByName = new HashMap<>();
         for (String s : recipe) {
             if (recipeQuantityByName.containsKey(s)) {
