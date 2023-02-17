@@ -30,7 +30,8 @@ public class CoffeeMachineTest {
     @Test
     public void
     givenQuitChoice_shouldQuit() {
-        System.setIn(new ByteArrayInputStream("q\n".getBytes()));
+        String input = "q\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
