@@ -24,7 +24,7 @@ public class Drink implements Comparable<Drink> {
 
     Recipe getRecipeTemp() {
         Map<String, Integer> currRecipe = getRecipe();
-        return new Recipe(currRecipe);
+        return recipeTemp;
     }
 
     public int compareTo(Drink drink) {
