@@ -12,10 +12,12 @@ public class CliView {
 
         System.out.println("\nMenu:");
         int count = 1;
+        StringBuffer menu = new StringBuffer();
         for (Drink d : drinkList) {
-            System.out.printf("%d,%s,$%.2f," + d.getMakeable() + "\n", count, d.getName(), d.getCost());
+            menu.append(String.format("%d,%s,$%.2f," + d.getMakeable() + "\n", count, d.getName(), d.getCost()));
             count++;
         }
+        System.out.print(menu);
 
         System.out.print("\nYour selection: ");
     }
