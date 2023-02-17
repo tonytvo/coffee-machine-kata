@@ -70,9 +70,10 @@ public class CoffeeMachine {
         for (Drink d : drinkList) {
             double currCost = 0;
             Map<String, Integer> currRecipe = d.getRecipe();
+            Recipe recipe = new Recipe(currRecipe);
             for (Ingredient i : ingredientList) {
-                if (Recipe.containsReceipt(new Recipe(currRecipe), i)) {
-                    currCost += i.getCost() * Recipe.getQuantity(new Recipe(currRecipe), i);
+                if (Recipe.containsReceipt(recipe, i)) {
+                    currCost += i.getCost() * Recipe.getQuantity(recipe, i);
                 }
             }
             d.setCost(currCost);
