@@ -103,10 +103,14 @@ public class CoffeeMachine {
                 }
             }
         } else {
-            System.out.println("Out of stock: " + drink.getName() + "\n");
+            displayOutOfStock(drink.getName());
         }
         updateMakeable();
         askForSelection();
+    }
+
+    private static void displayOutOfStock(String drinkName) {
+        System.out.println("Out of stock: " + drinkName + "\n");
     }
 
     private static void displayDispensingDrink(String drinkName) {
