@@ -56,10 +56,10 @@ public class Model {
         new Drinks(drinkList).addDrink("Caffe Mocha", new String[]{"Espresso", "Cocoa", "Steamed Milk", "Whipped Cream"});
         new Drinks(drinkList).addDrink("Cappuccino", new String[]{"Espresso", "Espresso", "Steamed Milk", "Foamed Milk"});
 
-        sort();
+        sort(drinkList);
     }
 
-    private static void sort() {
+    private static void sort(List<Drink> drinkList) {
         Collections.sort(drinkList);
     }
 }
