@@ -18,7 +18,7 @@ public class CoffeeMachine {
         addAllDrinks();
         updateCosts();
         updateMakeable();
-        askForSelection(ingredientList, drinkList);
+        CliView.askForSelection(ingredientList, drinkList);
         startIO();
     }
 
@@ -47,29 +47,9 @@ public class CoffeeMachine {
                     throw new IOException(); // legal, but invalid input
                 }
             } catch (Exception e) {
-                displayInvalidSelection(input);
+                CliView.displayInvalidSelection(input);
             }
         }
-    }
-
-    private static void displayInvalidSelection(String input) {
-        System.out.print("Invalid selection: " + input + ". Try again: "); // illegal input
-    }
-
-    public static void askForSelection(List<Ingredient> ingredientList, List<Drink> drinkList) {
-        System.out.println("Inventory:");
-        for (Ingredient i : ingredientList) {
-            System.out.println(i.getName() + "," + i.getStock());
-        }
-
-        System.out.println("\nMenu:");
-        int count = 1;
-        for (Drink d : drinkList) {
-            System.out.printf("%d,%s,$%.2f," + d.getMakeable() + "\n", count, d.getName(), d.getCost());
-            count++;
-        }
-
-        System.out.print("\nYour selection: ");
     }
 
     public static void updateMakeable() {
@@ -100,25 +80,17 @@ public class CoffeeMachine {
 
     public static void makeDrink(Drink drink) {
         if (drink.getMakeable()) {
-            displayDispensingDrink(drink.getName());
+            CliView.displayDispensingDrink(drink.getName());
             for (Ingredient i : ingredientList) {
                 if (drink.getRecipe().containsKey(i.getName())) {
                     i.setStock(i.getStock() - drink.getRecipe().get(i.getName()));
                 }
             }
         } else {
-            displayOutOfStock(drink.getName());
+            CliView.displayOutOfStock(drink.getName());
         }
         updateMakeable();
-        askForSelection(ingredientList, drinkList);
-    }
-
-    private static void displayOutOfStock(String drinkName) {
-        System.out.println("Out of stock: " + drinkName + "\n");
-    }
-
-    private static void displayDispensingDrink(String drinkName) {
-        System.out.println("Dispensing: " + drinkName + "\n");
+        CliView.askForSelection(ingredientList, drinkList);
     }
 
     public static void restockIngredients() {
@@ -126,7 +98,7 @@ public class CoffeeMachine {
             i.setStock(10);
         }
         updateMakeable();
-        askForSelection(ingredientList, drinkList);
+        CliView.askForSelection(ingredientList, drinkList);
     }
 
     public static void addIngredient(Ingredient ingredient) {
