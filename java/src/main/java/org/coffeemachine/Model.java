@@ -34,7 +34,7 @@ public class Model {
         ingredientList.add(ingredient);
     }
 
-    public static void addDrink(String name, String[] recipe) {
+    public static void addDrink(String name, String[] recipe, List<Drink> drinkList) {
         drinkList.add(new Drink(name, recipe));
     }
 
@@ -53,12 +53,12 @@ public class Model {
     }
 
     public static void addAllDrinks() {
-        addDrink("Coffee", new String[]{"Coffee", "Coffee", "Coffee", "Sugar", "Cream"});
-        addDrink("Decaf Coffee", new String[]{"Decaf Coffee", "Decaf Coffee", "Decaf Coffee", "Sugar", "Cream"});
-        addDrink("Caffe Latte", new String[]{"Espresso", "Espresso", "Steamed Milk"});
-        addDrink("Caffe Americano", new String[]{"Espresso", "Espresso", "Espresso"});
-        addDrink("Caffe Mocha", new String[]{"Espresso", "Cocoa", "Steamed Milk", "Whipped Cream"});
-        addDrink("Cappuccino", new String[]{"Espresso", "Espresso", "Steamed Milk", "Foamed Milk"});
+        addDrink("Coffee", new String[]{"Coffee", "Coffee", "Coffee", "Sugar", "Cream"}, drinkList);
+        addDrink("Decaf Coffee", new String[]{"Decaf Coffee", "Decaf Coffee", "Decaf Coffee", "Sugar", "Cream"}, drinkList);
+        addDrink("Caffe Latte", new String[]{"Espresso", "Espresso", "Steamed Milk"}, drinkList);
+        addDrink("Caffe Americano", new String[]{"Espresso", "Espresso", "Espresso"}, drinkList);
+        addDrink("Caffe Mocha", new String[]{"Espresso", "Cocoa", "Steamed Milk", "Whipped Cream"}, drinkList);
+        addDrink("Cappuccino", new String[]{"Espresso", "Espresso", "Steamed Milk", "Foamed Milk"}, drinkList);
 
         Collections.sort(drinkList);
     }
