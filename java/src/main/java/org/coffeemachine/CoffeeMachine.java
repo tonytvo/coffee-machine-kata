@@ -7,10 +7,11 @@ import java.io.InputStreamReader;
 public class CoffeeMachine {
 
     public static void main(String[] args) {
-        Model.initModel(new Drinks(Model.drinkList));
+        Drinks drinks = new Drinks(Model.drinkList);
+        Model.initModel(drinks);
         CliView cliView = new CliView();
-        cliView.askForSelection(Model.ingredientList, new Drinks(Model.drinkList));
-        startIO(cliView, new Drinks(Model.drinkList));
+        cliView.askForSelection(Model.ingredientList, drinks);
+        startIO(cliView, drinks);
     }
 
     public static void startIO(CliView cliView, Drinks drinks) {
