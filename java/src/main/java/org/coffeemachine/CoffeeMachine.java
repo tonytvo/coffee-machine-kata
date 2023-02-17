@@ -10,8 +10,8 @@ import java.util.Map;
 
 public class CoffeeMachine {
 
-    private static List<Drink> drinkList = new ArrayList<Drink>();
-    private static List<Ingredient> ingredientList = new ArrayList<Ingredient>();
+    private static List<Drink> drinkList = new ArrayList<>();
+    private static List<Ingredient> ingredientList = new ArrayList<>();
 
     public static void main(String[] args) {
         addAllIngredients();
@@ -32,9 +32,11 @@ public class CoffeeMachine {
 
                 if (input.equals("")) {
                     continue;
-                } else if (input.equals("q")) {
+                }
+                if (input.equals("q")) {
                     break;
-                } else if (input.equals("r")) {
+                }
+                if (input.equals("r")) {
                     restockIngredients();
                     updateMakeable();
                 } else if (Integer.parseInt(input) > 0 && Integer.parseInt(input) <= drinkList.size()) { // dynamic
