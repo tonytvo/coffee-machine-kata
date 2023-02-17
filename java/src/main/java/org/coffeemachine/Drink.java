@@ -12,7 +12,10 @@ public class Drink implements Comparable<Drink> {
 
     public Drink(String name, String[] recipe) {
         this.name = name;
+        this.recipeTemp = convertToRecipe(recipe);
+    }
 
+    private static Recipe convertToRecipe(String[] recipe) {
         Map<String, Integer> recipeQuantityByName = new HashMap<>();
         for (String s : recipe) {
             if (recipeQuantityByName.containsKey(s)) {
@@ -22,7 +25,7 @@ public class Drink implements Comparable<Drink> {
             }
         }
         Recipe recipeTemp1 = new Recipe(recipeQuantityByName);
-        recipeTemp = recipeTemp1;
+        return recipeTemp1;
     }
 
     Recipe getRecipeTemp() {
