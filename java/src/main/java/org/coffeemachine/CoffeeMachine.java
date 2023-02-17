@@ -57,11 +57,12 @@ public class CoffeeMachine {
         for (Drink d : drinkList) {
             Map<String, Integer> currRecipe = d.getRecipe();
             for (Ingredient i : ingredientList) {
-                if (isNotMakeable(currRecipe, i)) {
+                if (!isNotMakeable(currRecipe, i)) {
+                    d.setMakeable(true);
+                } else {
                     d.setMakeable(false);
                     break;
                 }
-                d.setMakeable(true);
             }
         }
     }
