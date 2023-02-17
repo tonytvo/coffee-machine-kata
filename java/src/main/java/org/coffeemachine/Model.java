@@ -12,7 +12,7 @@ public class Model {
         addAllIngredients();
         addAllDrinks();
         updateCosts();
-        Drinks.updateMakeable(ingredientList, new Drinks(drinkList));
+        new Drinks(drinkList).updateMakeable(ingredientList);
     }
 
     public static void updateCosts() {

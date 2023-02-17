@@ -9,13 +9,13 @@ public class Drinks {
         this.drinkList = drinkList;
     }
 
-    public static void updateMakeable(List<Ingredient> ingredientList, Drinks drinks) {
-        for (Drink d : drinks.getDrinkList()) {
+    public void updateMakeable(List<Ingredient> ingredientList) {
+        for (Drink d : getDrinkList()) {
             d.updateMakable(ingredientList);
         }
     }
 
-    public List<Drink> getDrinkList() {
+    private List<Drink> getDrinkList() {
         return drinkList;
     }
 }
