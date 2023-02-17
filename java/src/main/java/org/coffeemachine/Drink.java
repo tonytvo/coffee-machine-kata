@@ -1,5 +1,7 @@
 package org.coffeemachine;
 
+import java.util.List;
+
 public class Drink implements Comparable<Drink> {
     private final String name;
     private final Recipe recipe;
@@ -9,6 +11,17 @@ public class Drink implements Comparable<Drink> {
     public Drink(String name, String[] recipe) {
         this.name = name;
         this.recipe = Recipe.fromRecipeNames(recipe);
+    }
+
+    static double calculateCost(Drink d, List<Ingredient> ingredientList1) {
+        double currCost = 0;
+        Recipe recipe = d.getRecipe();
+        for (Ingredient i : ingredientList1) {
+            if (recipe.containsRecipe(i)) {
+                currCost += i.getCost() * recipe.getQuantity(i);
+            }
+        }
+        return currCost;
     }
 
     Recipe getRecipe() {
