@@ -54,7 +54,7 @@ public class CoffeeMachine {
 
     public static void updateMakeable() {
         for (Drink d : drinkList) {
-            Drink.updateMakable(d, ingredientList);
+            d.updateMakable(ingredientList);
         }
     }
 
