@@ -3,11 +3,8 @@ package org.coffeemachine;
 import java.util.List;
 
 public class CliView {
-    static void displayInvalidSelection(String input) {
-        System.out.print("Invalid selection: " + input + ". Try again: "); // illegal input
-    }
 
-    public static void askForSelection(List<Ingredient> ingredientList, List<Drink> drinkList) {
+    public void askForSelection(List<Ingredient> ingredientList, List<Drink> drinkList) {
         System.out.println("Inventory:");
         for (Ingredient i : ingredientList) {
             System.out.println(i.getName() + "," + i.getStock());
@@ -23,11 +20,15 @@ public class CliView {
         System.out.print("\nYour selection: ");
     }
 
-    static void displayOutOfStock(String drinkName) {
+    void displayOutOfStock(String drinkName) {
         System.out.println("Out of stock: " + drinkName + "\n");
     }
 
-    static void displayDispensingDrink(String drinkName) {
+    void displayDispensingDrink(String drinkName) {
         System.out.println("Dispensing: " + drinkName + "\n");
+    }
+
+    void displayInvalidSelection(String input) {
+        System.out.print("Invalid selection: " + input + ". Try again: "); // illegal input
     }
 }

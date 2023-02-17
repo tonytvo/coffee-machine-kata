@@ -10,15 +10,15 @@ import java.util.Map;
 
 public class CoffeeMachine {
 
-    private static List<Drink> drinkList = new ArrayList<>();
-    private static List<Ingredient> ingredientList = new ArrayList<>();
+    private static final List<Drink> drinkList = new ArrayList<>();
+    private static final List<Ingredient> ingredientList = new ArrayList<>();
 
     public static void main(String[] args) {
         addAllIngredients();
         addAllDrinks();
         updateCosts();
         updateMakeable();
-        CliView.askForSelection(ingredientList, drinkList);
+        new CliView().askForSelection(ingredientList, drinkList);
         startIO();
     }
 
@@ -47,7 +47,7 @@ public class CoffeeMachine {
                     throw new IOException(); // legal, but invalid input
                 }
             } catch (Exception e) {
-                CliView.displayInvalidSelection(input);
+                new CliView().displayInvalidSelection(input);
             }
         }
     }
@@ -80,17 +80,17 @@ public class CoffeeMachine {
 
     public static void makeDrink(Drink drink) {
         if (drink.getMakeable()) {
-            CliView.displayDispensingDrink(drink.getName());
+            new CliView().displayDispensingDrink(drink.getName());
             for (Ingredient i : ingredientList) {
                 if (drink.getRecipe().containsKey(i.getName())) {
                     i.setStock(i.getStock() - drink.getRecipe().get(i.getName()));
                 }
             }
         } else {
-            CliView.displayOutOfStock(drink.getName());
+            new CliView().displayOutOfStock(drink.getName());
         }
         updateMakeable();
-        CliView.askForSelection(ingredientList, drinkList);
+        new CliView().askForSelection(ingredientList, drinkList);
     }
 
     public static void restockIngredients() {
@@ -98,7 +98,7 @@ public class CoffeeMachine {
             i.setStock(10);
         }
         updateMakeable();
-        CliView.askForSelection(ingredientList, drinkList);
+        new CliView().askForSelection(ingredientList, drinkList);
     }
 
     public static void addIngredient(Ingredient ingredient) {
