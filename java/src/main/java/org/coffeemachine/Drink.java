@@ -13,6 +13,11 @@ public class Drink implements Comparable<Drink> {
         this.recipe = Recipe.fromRecipeNames(recipe);
     }
 
+    static void updateCost(Drink d, List<Ingredient> ingredientList1) {
+        double currCost = d.calculateCost(ingredientList1);
+        d.setCost(currCost);
+    }
+
     void updateMakable(List<Ingredient> ingredientList1) {
         Recipe recipe = getRecipe();
         for (Ingredient i : ingredientList1) {
