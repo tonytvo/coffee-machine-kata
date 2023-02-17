@@ -47,9 +47,13 @@ public class CoffeeMachine {
                     throw new IOException(); // legal, but invalid input
                 }
             } catch (Exception e) {
-                System.out.print("Invalid selection: " + input + ". Try again: "); // illegal input
+                displayInvalidSelection(input);
             }
         }
+    }
+
+    private static void displayInvalidSelection(String input) {
+        System.out.print("Invalid selection: " + input + ". Try again: "); // illegal input
     }
 
     public static void askForSelection() {
