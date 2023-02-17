@@ -12,11 +12,11 @@ public class Model {
         addAllIngredients();
         addAllDrinks();
         updateCosts();
-        updateMakeable(ingredientList, drinkList);
+        updateMakeable(ingredientList, new Drinks(drinkList));
     }
 
-    public static void updateMakeable(List<Ingredient> ingredientList, List<Drink> drinkList) {
-        for (Drink d : drinkList) {
+    public static void updateMakeable(List<Ingredient> ingredientList, Drinks drinks) {
+        for (Drink d : drinks.getDrinkList()) {
             d.updateMakable(ingredientList);
         }
     }
