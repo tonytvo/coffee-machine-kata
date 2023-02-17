@@ -11,20 +11,10 @@ public class CliView {
         }
 
         System.out.println("\nMenu:");
-        StringBuffer menu = getDrinksMenu(new Drinks(drinkList));
+        StringBuffer menu = Drinks.getDrinksMenu(new Drinks(drinkList));
         System.out.print(menu);
 
         System.out.print("\nYour selection: ");
-    }
-
-    private static StringBuffer getDrinksMenu(Drinks drinks) {
-        int count = 1;
-        StringBuffer menu = new StringBuffer();
-        for (Drink d : drinks.getDrinkList()) {
-            menu.append(String.format("%d,%s,$%.2f," + d.getMakeable() + "\n", count, d.getName(), d.getCost()));
-            count++;
-        }
-        return menu;
     }
 
     void displayOutOfStock(String drinkName) {

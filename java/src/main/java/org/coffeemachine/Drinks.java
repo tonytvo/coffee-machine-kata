@@ -9,6 +9,16 @@ public class Drinks {
         this.drinkList = drinkList;
     }
 
+    static StringBuffer getDrinksMenu(Drinks drinks) {
+        int count = 1;
+        StringBuffer menu = new StringBuffer();
+        for (Drink d : drinks.getDrinkList()) {
+            menu.append(String.format("%d,%s,$%.2f," + d.getMakeable() + "\n", count, d.getName(), d.getCost()));
+            count++;
+        }
+        return menu;
+    }
+
     Drink getDrink(int drinkId) {
         return getDrinkList().get(drinkId);
     }
