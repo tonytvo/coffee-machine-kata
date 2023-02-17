@@ -9,8 +9,8 @@ public class Drinks {
         this.drinkList = drinkList;
     }
 
-    public static void addDrink(String name, String[] recipe, Drinks drinks) {
-        drinks.getDrinkList().add(new Drink(name, recipe));
+    public void addDrink(String name, String[] recipe) {
+        getDrinkList().add(new Drink(name, recipe));
     }
 
     public void updateCosts(List<Ingredient> ingredientList) {

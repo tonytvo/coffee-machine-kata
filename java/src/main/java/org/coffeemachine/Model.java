@@ -49,12 +49,12 @@ public class Model {
     }
 
     public static void addAllDrinks() {
-        Drinks.addDrink("Coffee", new String[]{"Coffee", "Coffee", "Coffee", "Sugar", "Cream"}, new Drinks(drinkList));
-        Drinks.addDrink("Decaf Coffee", new String[]{"Decaf Coffee", "Decaf Coffee", "Decaf Coffee", "Sugar", "Cream"}, new Drinks(drinkList));
-        Drinks.addDrink("Caffe Latte", new String[]{"Espresso", "Espresso", "Steamed Milk"}, new Drinks(drinkList));
-        Drinks.addDrink("Caffe Americano", new String[]{"Espresso", "Espresso", "Espresso"}, new Drinks(drinkList));
-        Drinks.addDrink("Caffe Mocha", new String[]{"Espresso", "Cocoa", "Steamed Milk", "Whipped Cream"}, new Drinks(drinkList));
-        Drinks.addDrink("Cappuccino", new String[]{"Espresso", "Espresso", "Steamed Milk", "Foamed Milk"}, new Drinks(drinkList));
+        new Drinks(drinkList).addDrink("Coffee", new String[]{"Coffee", "Coffee", "Coffee", "Sugar", "Cream"});
+        new Drinks(drinkList).addDrink("Decaf Coffee", new String[]{"Decaf Coffee", "Decaf Coffee", "Decaf Coffee", "Sugar", "Cream"});
+        new Drinks(drinkList).addDrink("Caffe Latte", new String[]{"Espresso", "Espresso", "Steamed Milk"});
+        new Drinks(drinkList).addDrink("Caffe Americano", new String[]{"Espresso", "Espresso", "Espresso"});
+        new Drinks(drinkList).addDrink("Caffe Mocha", new String[]{"Espresso", "Cocoa", "Steamed Milk", "Whipped Cream"});
+        new Drinks(drinkList).addDrink("Cappuccino", new String[]{"Espresso", "Espresso", "Steamed Milk", "Foamed Milk"});
 
         Collections.sort(drinkList);
     }
