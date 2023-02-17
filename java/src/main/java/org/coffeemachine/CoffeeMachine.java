@@ -72,8 +72,8 @@ public class CoffeeMachine {
             Map<String, Integer> currRecipe = d.getRecipe();
             Recipe recipe = new Recipe(currRecipe);
             for (Ingredient i : ingredientList) {
-                if (Recipe.containsReceipt(recipe, i)) {
-                    currCost += i.getCost() * Recipe.getQuantity(recipe, i);
+                if (recipe.containsReceipt(i)) {
+                    currCost += i.getCost() * recipe.getQuantity(i);
                 }
             }
             d.setCost(currCost);
@@ -84,8 +84,8 @@ public class CoffeeMachine {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
             for (Ingredient i : ingredientList) {
-                if (Recipe.containsReceipt(new Recipe(drink.getRecipe()), i)) {
-                    i.setStock(i.getStock() - Recipe.getQuantity(new Recipe(drink.getRecipe()), i));
+                if (new Recipe(drink.getRecipe()).containsReceipt(i)) {
+                    i.setStock(i.getStock() - new Recipe(drink.getRecipe()).getQuantity(i));
                 }
             }
         } else {
