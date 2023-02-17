@@ -23,7 +23,7 @@ public class Drink implements Comparable<Drink> {
         return name.compareTo(drink.getName());
     }
 
-    public void setRecipe(String[] recipe) {
+    private void setRecipe(String[] recipe) {
         for (String s : recipe) {
             if (this.recipe.containsKey(s)) {
                 this.recipe.put(s, this.recipe.get(s) + 1);// increment if multiple units
@@ -31,6 +31,7 @@ public class Drink implements Comparable<Drink> {
                 this.recipe.put(s, 1);// insert first occurrence of ingredient
             }
         }
+
     }
 
     public void setCost(double totalCost) {
