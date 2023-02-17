@@ -33,7 +33,7 @@ public class CoffeeMachine {
                 if (input.equals("")) {
                     continue;
                 } else if (input.equals("q")) {
-                    System.exit(0);
+                    break;
                 } else if (input.equals("r")) {
                     restockIngredients();
                     updateMakeable();
