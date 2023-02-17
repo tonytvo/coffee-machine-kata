@@ -96,7 +96,7 @@ public class CoffeeMachine {
 
     public static void makeDrink(Drink drink) {
         if (drink.getMakeable()) {
-            System.out.println("Dispensing: " + drink.getName() + "\n");
+            displayDispensingDrink(drink.getName());
             for (Ingredient i : ingredientList) {
                 if (drink.getRecipe().containsKey(i.getName())) {
                     i.setStock(i.getStock() - drink.getRecipe().get(i.getName()));
@@ -107,6 +107,10 @@ public class CoffeeMachine {
         }
         updateMakeable();
         askForSelection();
+    }
+
+    private static void displayDispensingDrink(String drinkName) {
+        System.out.println("Dispensing: " + drinkName + "\n");
     }
 
     public static void restockIngredients() {
