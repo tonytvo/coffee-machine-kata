@@ -41,7 +41,7 @@ public class Drink implements Comparable<Drink> {
         this.makeable = makeable;
     }
 
-    public Map<String, Integer> getRecipe() {
+    private Map<String, Integer> getRecipe() {
         return recipe;
     }
 
