@@ -9,6 +9,12 @@ public class Drinks {
         this.drinkList = drinkList;
     }
 
+    public static void updateCosts(Drinks drinks, List<Ingredient> ingredientList) {
+        for (Drink d : drinks.getDrinkList()) {
+            d.updateCost(ingredientList);
+        }
+    }
+
     StringBuffer getDrinksMenu() {
         int count = 1;
         StringBuffer menu = new StringBuffer();

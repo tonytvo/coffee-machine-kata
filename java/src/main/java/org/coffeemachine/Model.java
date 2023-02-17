@@ -11,14 +11,8 @@ public class Model {
     static void initModel() {
         addAllIngredients();
         addAllDrinks();
-        updateCosts(new Drinks(drinkList), ingredientList);
+        Drinks.updateCosts(new Drinks(drinkList), ingredientList);
         new Drinks(drinkList).updateMakeable(ingredientList);
-    }
-
-    public static void updateCosts(Drinks drinks, List<Ingredient> ingredientList) {
-        for (Drink d : drinks.getDrinkList()) {
-            d.updateCost(ingredientList);
-        }
     }
 
     public static void makeDrink(Drink drink, CliView cliView) {
