@@ -10,6 +10,10 @@ public class Drinks {
         this.drinkList = drinkList;
     }
 
+    boolean isValidDrinkInput(int drinkInput) {
+        return drinkInput > getDrinkList().size();
+    }
+
     void sort() {
         Collections.sort(getDrinkList());
     }
