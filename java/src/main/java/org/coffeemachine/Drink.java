@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Drink implements Comparable<Drink> {
-    private Map<String, Integer> recipe = new HashMap<String, Integer>();// map ingredients to units per
-    private String name;
+    private final Map<String, Integer> recipe = new HashMap<>();// map ingredients to units per
+    private final String name;
     private double totalCost = 0;
     private boolean makeable = false;
 
@@ -26,10 +26,6 @@ public class Drink implements Comparable<Drink> {
                 this.recipe.put(s, 1);// insert first occurrence of ingredient
             }
         }
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setCost(double totalCost) {
