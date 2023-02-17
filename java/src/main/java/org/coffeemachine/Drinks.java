@@ -1,13 +1,14 @@
 package org.coffeemachine;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Drinks {
     private final List<Drink> drinkList;
 
-    public Drinks(List<Drink> drinkList) {
-        this.drinkList = drinkList;
+    public Drinks() {
+        this.drinkList = new ArrayList<>();
     }
 
     boolean isValidDrinkInput(int drinkInput) {

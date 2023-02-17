@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Model {
-    static final List<Drink> drinkList = new ArrayList<>();
+    static final Drinks drinks = new Drinks();
     static final List<Ingredient> ingredientList = new ArrayList<>();
 
     static void initModel(Drinks drinks) {

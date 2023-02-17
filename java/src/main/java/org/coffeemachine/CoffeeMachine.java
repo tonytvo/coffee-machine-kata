@@ -1,13 +1,17 @@
 package org.coffeemachine;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CoffeeMachine {
 
     public static void main(String[] args) {
-        Drinks drinks = new Drinks(Model.drinkList);
+        Drinks drinks = Model.drinks;
         Model.initModel(drinks);
         CliView cliView = new CliView();
         cliView.askForSelection(Model.ingredientList, drinks);
