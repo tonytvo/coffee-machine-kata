@@ -31,6 +31,11 @@ public class CoffeeMachineTest {
     public void
     givenQuitChoice_shouldQuit() {
         String input = "q\n";
+        String displayText = runCoffeeMachine(input);
+        Approvals.verify(displayText);
+    }
+
+    private static String runCoffeeMachine(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
@@ -39,6 +44,6 @@ public class CoffeeMachineTest {
         CoffeeMachine.main(new String []{});
 
         String displayText = output.toString();
-        Approvals.verify(displayText);
+        return displayText;
     }
 }
