@@ -15,14 +15,6 @@ public class Ingredient implements Comparable<Ingredient> {
         return name.compareTo(ingredient.getName());
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
-
     public void setStock(int stock) {
         this.stock = stock;
     }
