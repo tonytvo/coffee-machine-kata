@@ -38,12 +38,14 @@ public class CoffeeMachine {
                 }
                 if (input.equals("r")) {
                     restockIngredients(cliView);
-                } else if (Integer.parseInt(input) > 0 && Integer.parseInt(input) <= drinkList.size()) { // dynamic
-                                                                                                         // drink menu
-                                                                                                         // selection
-                    makeDrink(drinkList.get(Integer.parseInt(input) - 1), cliView);
                 } else {
-                    throw new IOException(); // legal, but invalid input
+                    if (Integer.parseInt(input) > 0 && Integer.parseInt(input) <= drinkList.size()) { // dynamic
+                        // drink menu
+                        // selection
+                        makeDrink(drinkList.get(Integer.parseInt(input) - 1), cliView);
+                    } else {
+                        throw new IOException(); // legal, but invalid input
+                    }
                 }
                 updateMakeable();
                 cliView.askForSelection(ingredientList, drinkList);
