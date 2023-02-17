@@ -60,7 +60,7 @@ public class CoffeeMachine {
 
     public static void updateCosts() {
         for (Drink d : drinkList) {
-            Drink.updateCost(d, ingredientList);
+            d.updateCost(ingredientList);
         }
     }
 
