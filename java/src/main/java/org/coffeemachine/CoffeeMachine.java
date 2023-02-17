@@ -43,10 +43,14 @@ public class CoffeeMachine {
 
     private static int parseDrinkIdAndThrowExceptionIfInvalid(String input) throws IOException {
         int drinkInput = Integer.parseInt(input);
-        if (drinkInput <= 0 || drinkInput > Model.drinkList.size()) {
+        if (drinkInput <= 0 || isValidDrinkInput(drinkInput)) {
             throw new IOException(); // legal, but invalid input
         }
         return drinkInput - 1;
+    }
+
+    private static boolean isValidDrinkInput(int drinkInput) {
+        return drinkInput > Model.drinkList.size();
     }
 
 }
