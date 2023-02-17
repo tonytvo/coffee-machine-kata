@@ -39,12 +39,8 @@ public class CoffeeMachine {
                 if (input.equals("r")) {
                     restockIngredients(cliView);
                 } else {
-                    int drinkInput = Integer.parseInt(input);
-                    if (drinkInput <= 0 || drinkInput > drinkList.size()) {
-                        throw new IOException(); // legal, but invalid input
-                    }
-
-                    makeDrink(drinkList.get(drinkInput - 1), cliView);
+                    int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input);
+                    makeDrink(drinkList.get(drinkId), cliView);
                 }
                 updateMakeable();
                 cliView.askForSelection(ingredientList, drinkList);
@@ -52,6 +48,15 @@ public class CoffeeMachine {
                 cliView.displayInvalidSelection(input);
             }
         }
+    }
+
+    private static int parseDrinkIdAndThrowExceptionIfInvalid(String input) throws IOException {
+        int drinkInput = Integer.parseInt(input);
+        if (drinkInput <= 0 || drinkInput > drinkList.size()) {
+            throw new IOException(); // legal, but invalid input
+        }
+        int drinkId = drinkInput - 1;
+        return drinkId;
     }
 
     public static void updateMakeable() {
