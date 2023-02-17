@@ -57,17 +57,13 @@ public class CoffeeMachine {
         for (Drink d : drinkList) {
             Map<String, Integer> currRecipe = d.getRecipe();
             for (Ingredient i : ingredientList) {
-                boolean makeable = isMakeable(new Recipe(currRecipe), i);
+                boolean makeable = Recipe.isMakeable(new Recipe(currRecipe), i);
                 d.setMakeable(makeable);
                 if (!makeable) {
                     break;
                 }
             }
         }
-    }
-
-    private static boolean isMakeable(Recipe recipe, Ingredient i) {
-        return !recipe.getCurrRecipe().containsKey(i.getName()) || i.getStock() >= recipe.getCurrRecipe().get(i.getName());
     }
 
     public static void updateCosts() {

@@ -9,6 +9,10 @@ public class Recipe {
         this.currRecipe = currRecipe;
     }
 
+    static boolean isMakeable(Recipe recipe, Ingredient i) {
+        return !recipe.getCurrRecipe().containsKey(i.getName()) || i.getStock() >= recipe.getCurrRecipe().get(i.getName());
+    }
+
     public Map<String, Integer> getCurrRecipe() {
         return currRecipe;
     }
