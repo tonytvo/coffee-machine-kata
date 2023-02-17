@@ -71,7 +71,7 @@ public class CoffeeMachine {
             double currCost = 0;
             Map<String, Integer> currRecipe = d.getRecipe();
             for (Ingredient i : ingredientList) {
-                if (currRecipe.containsKey(i.getName())) {
+                if (containsReceipt(new Recipe(currRecipe), i)) {
                     currCost += i.getCost() * currRecipe.get(i.getName());
                 }
             }
@@ -79,11 +79,15 @@ public class CoffeeMachine {
         }
     }
 
+    private static boolean containsReceipt(Recipe recipe, Ingredient i) {
+        return recipe.getCurrRecipe().containsKey(i.getName());
+    }
+
     public static void makeDrink(Drink drink, CliView cliView) {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
             for (Ingredient i : ingredientList) {
-                if (drink.getRecipe().containsKey(i.getName())) {
+                if (containsReceipt(new Recipe(drink.getRecipe()), i)) {
                     i.setStock(i.getStock() - drink.getRecipe().get(i.getName()));
                 }
             }

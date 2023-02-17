@@ -13,7 +13,7 @@ public class Recipe {
         return !getCurrRecipe().containsKey(i.getName()) || i.getStock() >= getCurrRecipe().get(i.getName());
     }
 
-    private Map<String, Integer> getCurrRecipe() {
+    public Map<String, Integer> getCurrRecipe() {
         return currRecipe;
     }
 }
