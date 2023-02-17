@@ -1,10 +1,6 @@
 package org.coffeemachine;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Drink implements Comparable<Drink> {
-    private final Map<String, Integer> recipe = new HashMap<>();// map ingredients to units per
     private final String name;
     private final Recipe recipeTemp;
     private double totalCost = 0;
@@ -16,7 +12,6 @@ public class Drink implements Comparable<Drink> {
     }
 
     Recipe getRecipeTemp() {
-        Map<String, Integer> currRecipe = getRecipe();
         return recipeTemp;
     }
 
@@ -30,10 +25,6 @@ public class Drink implements Comparable<Drink> {
 
     public void setMakeable(boolean makeable) {
         this.makeable = makeable;
-    }
-
-    private Map<String, Integer> getRecipe() {
-        return recipe;
     }
 
     public double getCost() {
