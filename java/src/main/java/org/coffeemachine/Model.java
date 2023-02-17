@@ -12,10 +12,10 @@ public class Model {
         addAllIngredients();
         addAllDrinks();
         updateCosts();
-        updateMakeable(ingredientList);
+        updateMakeable(ingredientList, drinkList);
     }
 
-    public static void updateMakeable(List<Ingredient> ingredientList) {
+    public static void updateMakeable(List<Ingredient> ingredientList, List<Drink> drinkList) {
         for (Drink d : drinkList) {
             d.updateMakable(ingredientList);
         }
