@@ -18,8 +18,9 @@ public class CoffeeMachine {
         addAllDrinks();
         updateCosts();
         updateMakeable();
-        new CliView().askForSelection(ingredientList, drinkList);
-        startIO(new CliView());
+        CliView cliView = new CliView();
+        cliView.askForSelection(ingredientList, drinkList);
+        startIO(cliView);
     }
 
     public static void startIO(CliView cliView) {
