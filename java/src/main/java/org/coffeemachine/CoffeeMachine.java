@@ -60,9 +60,13 @@ public class CoffeeMachine {
 
     public static void updateCosts() {
         for (Drink d : drinkList) {
-            double currCost = d.calculateCost(ingredientList);
-            d.setCost(currCost);
+            updateCost(d);
         }
+    }
+
+    private static void updateCost(Drink d) {
+        double currCost = d.calculateCost(ingredientList);
+        d.setCost(currCost);
     }
 
     public static void makeDrink(Drink drink, CliView cliView) {
