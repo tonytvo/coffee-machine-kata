@@ -42,7 +42,7 @@ public class CoffeeMachine {
                 } else if (Integer.parseInt(input) > 0 && Integer.parseInt(input) <= drinkList.size()) { // dynamic
                                                                                                          // drink menu
                                                                                                          // selection
-                    makeDrink(drinkList.get(Integer.parseInt(input) - 1));
+                    makeDrink(drinkList.get(Integer.parseInt(input) - 1), new CliView());
                 } else {
                     throw new IOException(); // legal, but invalid input
                 }
@@ -78,19 +78,19 @@ public class CoffeeMachine {
         }
     }
 
-    public static void makeDrink(Drink drink) {
+    public static void makeDrink(Drink drink, CliView cliView) {
         if (drink.getMakeable()) {
-            new CliView().displayDispensingDrink(drink.getName());
+            cliView.displayDispensingDrink(drink.getName());
             for (Ingredient i : ingredientList) {
                 if (drink.getRecipe().containsKey(i.getName())) {
                     i.setStock(i.getStock() - drink.getRecipe().get(i.getName()));
                 }
             }
         } else {
-            new CliView().displayOutOfStock(drink.getName());
+            cliView.displayOutOfStock(drink.getName());
         }
         updateMakeable();
-        new CliView().askForSelection(ingredientList, drinkList);
+        cliView.askForSelection(ingredientList, drinkList);
     }
 
     public static void restockIngredients() {
