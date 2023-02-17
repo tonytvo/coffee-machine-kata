@@ -10,8 +10,8 @@ public class Drinks {
         this.drinkList = drinkList;
     }
 
-    static void sort(Drinks drinks) {
-        Collections.sort(drinks.getDrinkList());
+    void sort() {
+        Collections.sort(getDrinkList());
     }
 
     public void addDrink(String name, String[] recipe) {

@@ -56,7 +56,7 @@ public class Model {
         new Drinks(drinkList).addDrink("Caffe Mocha", new String[]{"Espresso", "Cocoa", "Steamed Milk", "Whipped Cream"});
         new Drinks(drinkList).addDrink("Cappuccino", new String[]{"Espresso", "Espresso", "Steamed Milk", "Foamed Milk"});
 
-        Drinks.sort(new Drinks(drinkList));
+        new Drinks(drinkList).sort();
     }
 
 }
