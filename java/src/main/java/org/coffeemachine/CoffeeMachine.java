@@ -42,9 +42,9 @@ public class CoffeeMachine {
                     int drinkInput = Integer.parseInt(input);
                     if (drinkInput <= 0 || drinkInput > drinkList.size()) {
                         throw new IOException(); // legal, but invalid input
-                    } else {
-                        makeDrink(drinkList.get(drinkInput - 1), cliView);
                     }
+
+                    makeDrink(drinkList.get(drinkInput - 1), cliView);
                 }
                 updateMakeable();
                 cliView.askForSelection(ingredientList, drinkList);
