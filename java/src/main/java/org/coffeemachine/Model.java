@@ -8,9 +8,8 @@ public class Model {
     static final List<Drink> drinkList = new ArrayList<>();
     static final List<Ingredient> ingredientList = new ArrayList<>();
 
-    static void initModel() {
+    static void initModel(Drinks drinks) {
         addAllIngredients();
-        Drinks drinks = new Drinks(drinkList);
         addAllDrinks(drinks);
         drinks.updateCosts(ingredientList);
         drinks.updateMakeable(ingredientList);
