@@ -54,13 +54,13 @@ public class CoffeeMachine {
 
     public static void updateMakeable() {
         for (Drink d : drinkList) {
-            updateMakable(d);
+            updateMakable(d, ingredientList);
         }
     }
 
-    private static void updateMakable(Drink d) {
+    private static void updateMakable(Drink d, List<Ingredient> ingredientList1) {
         Recipe recipe = d.getRecipe();
-        for (Ingredient i : ingredientList) {
+        for (Ingredient i : ingredientList1) {
             boolean makeable = recipe.isMakeable(i);
             d.setMakeable(makeable);
             if (!makeable) {
