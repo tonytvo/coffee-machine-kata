@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class CoffeeMachine {
 
@@ -55,7 +54,7 @@ public class CoffeeMachine {
 
     public static void updateMakeable() {
         for (Drink d : drinkList) {
-            Recipe recipe = d.getRecipeTemp();
+            Recipe recipe = d.getRecipe();
             for (Ingredient i : ingredientList) {
                 boolean makeable = recipe.isMakeable(i);
                 d.setMakeable(makeable);
@@ -69,7 +68,7 @@ public class CoffeeMachine {
     public static void updateCosts() {
         for (Drink d : drinkList) {
             double currCost = 0;
-            Recipe recipe = d.getRecipeTemp();
+            Recipe recipe = d.getRecipe();
             for (Ingredient i : ingredientList) {
                 if (recipe.containsReceipt(i)) {
                     currCost += i.getCost() * recipe.getQuantity(i);
@@ -82,7 +81,7 @@ public class CoffeeMachine {
     public static void makeDrink(Drink drink, CliView cliView) {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
-            Recipe recipe = drink.getRecipeTemp();
+            Recipe recipe = drink.getRecipe();
             for (Ingredient i : ingredientList) {
                 if (recipe.containsReceipt(i)) {
                     i.setStock(i.getStock() - recipe.getQuantity(i));

@@ -2,17 +2,17 @@ package org.coffeemachine;
 
 public class Drink implements Comparable<Drink> {
     private final String name;
-    private final Recipe recipeTemp;
+    private final Recipe recipe;
     private double totalCost = 0;
     private boolean makeable = false;
 
     public Drink(String name, String[] recipe) {
         this.name = name;
-        this.recipeTemp = Recipe.fromRecipeNames(recipe);
+        this.recipe = Recipe.fromRecipeNames(recipe);
     }
 
-    Recipe getRecipeTemp() {
-        return recipeTemp;
+    Recipe getRecipe() {
+        return recipe;
     }
 
     public int compareTo(Drink drink) {
