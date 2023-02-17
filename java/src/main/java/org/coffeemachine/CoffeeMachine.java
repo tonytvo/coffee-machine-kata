@@ -57,7 +57,7 @@ public class CoffeeMachine {
         for (Drink d : drinkList) {
             Map<String, Integer> currRecipe = d.getRecipe();
             for (Ingredient i : ingredientList) {
-                if (!isNotMakeable(currRecipe, i)) {
+                if (isMakeable(currRecipe, i)) {
                     d.setMakeable(true);
                 } else {
                     d.setMakeable(false);
@@ -67,8 +67,8 @@ public class CoffeeMachine {
         }
     }
 
-    private static boolean isNotMakeable(Map<String, Integer> currRecipe, Ingredient i) {
-        return currRecipe.containsKey(i.getName()) && i.getStock() < currRecipe.get(i.getName());
+    private static boolean isMakeable(Map<String, Integer> currRecipe, Ingredient i) {
+        return !currRecipe.containsKey(i.getName()) || i.getStock() >= currRecipe.get(i.getName());
     }
 
     public static void updateCosts() {
