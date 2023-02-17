@@ -14,8 +14,7 @@ public class Drink implements Comparable<Drink> {
     }
 
     void updateCost(List<Ingredient> ingredientList1) {
-        double currCost = calculateCost(ingredientList1);
-        setCost(currCost);
+        setCost(calculateCost(ingredientList1));
     }
 
     void updateMakable(List<Ingredient> ingredientList1) {
