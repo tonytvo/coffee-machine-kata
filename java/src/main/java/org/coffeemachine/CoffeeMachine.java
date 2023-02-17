@@ -67,7 +67,7 @@ public class CoffeeMachine {
     public static void makeDrink(Drink drink, CliView cliView) {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
-            make(drink);
+            make(drink, ingredientList);
         } else {
             cliView.displayOutOfStock(drink.getName());
         }
@@ -75,7 +75,7 @@ public class CoffeeMachine {
         cliView.askForSelection(ingredientList, drinkList);
     }
 
-    private static void make(Drink drink) {
+    private static void make(Drink drink, List<Ingredient> ingredientList) {
         Recipe recipe = drink.getRecipe();
         for (Ingredient i : ingredientList) {
             if (recipe.containsRecipe(i)) {
