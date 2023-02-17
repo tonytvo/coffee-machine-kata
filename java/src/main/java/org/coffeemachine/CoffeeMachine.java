@@ -18,7 +18,7 @@ public class CoffeeMachine {
         addAllDrinks();
         updateCosts();
         updateMakeable();
-        askForSelection();
+        askForSelection(ingredientList, drinkList);
         startIO();
     }
 
@@ -56,7 +56,7 @@ public class CoffeeMachine {
         System.out.print("Invalid selection: " + input + ". Try again: "); // illegal input
     }
 
-    public static void askForSelection() {
+    public static void askForSelection(List<Ingredient> ingredientList, List<Drink> drinkList) {
         System.out.println("Inventory:");
         for (Ingredient i : ingredientList) {
             System.out.println(i.getName() + "," + i.getStock());
@@ -110,7 +110,7 @@ public class CoffeeMachine {
             displayOutOfStock(drink.getName());
         }
         updateMakeable();
-        askForSelection();
+        askForSelection(ingredientList, drinkList);
     }
 
     private static void displayOutOfStock(String drinkName) {
@@ -126,7 +126,7 @@ public class CoffeeMachine {
             i.setStock(10);
         }
         updateMakeable();
-        askForSelection();
+        askForSelection(ingredientList, drinkList);
     }
 
     public static void addIngredient(Ingredient ingredient) {
