@@ -9,8 +9,8 @@ public class Drinks {
         this.drinkList = drinkList;
     }
 
-    public static void updateCosts(Drinks drinks, List<Ingredient> ingredientList) {
-        for (Drink d : drinks.getDrinkList()) {
+    public void updateCosts(List<Ingredient> ingredientList) {
+        for (Drink d : getDrinkList()) {
             d.updateCost(ingredientList);
         }
     }
