@@ -38,6 +38,7 @@ public class CoffeeMachineTest {
 
         CoffeeMachine.main(new String []{});
 
-        Approvals.verify(output.toString());
+        String displayText = output.toString();
+        Approvals.verify(displayText);
     }
 }
