@@ -30,7 +30,13 @@ public class CoffeeMachineTest {
     @Test
     public void
     givenQuitChoice_shouldQuit() {
-        String [] inputs = new String [] { "q\n" };
+        String [] inputs = new String [] { "q\n",
+                "1\nq\n",
+                "3\nr\nq\n",
+                "\nq\n",
+                "999\nq\n",
+                "3\n3\n3\n3\n3\nq\n"
+        };
         Approvals.verifyAll(inputs, CoffeeMachineTest::runCoffeeMachine);
     }
 
