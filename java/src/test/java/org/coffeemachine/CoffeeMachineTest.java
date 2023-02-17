@@ -43,7 +43,6 @@ public class CoffeeMachineTest {
 
         CoffeeMachine.main(new String []{});
 
-        String displayText = output.toString();
-        return displayText;
+        return output.toString();
     }
 }
