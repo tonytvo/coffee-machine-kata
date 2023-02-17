@@ -38,7 +38,6 @@ public class CoffeeMachine {
                 }
                 if (input.equals("r")) {
                     restockIngredients(cliView);
-                    updateMakeable();
                 } else if (Integer.parseInt(input) > 0 && Integer.parseInt(input) <= drinkList.size()) { // dynamic
                                                                                                          // drink menu
                                                                                                          // selection
@@ -46,6 +45,8 @@ public class CoffeeMachine {
                 } else {
                     throw new IOException(); // legal, but invalid input
                 }
+                updateMakeable();
+                cliView.askForSelection(ingredientList, drinkList);
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }
@@ -71,16 +72,12 @@ public class CoffeeMachine {
         } else {
             cliView.displayOutOfStock(drink.getName());
         }
-        updateMakeable();
-        cliView.askForSelection(ingredientList, drinkList);
     }
 
     public static void restockIngredients(CliView cliView) {
         for (Ingredient i : ingredientList) {
             i.setStock(10);
         }
-        updateMakeable();
-        cliView.askForSelection(ingredientList, drinkList);
     }
 
     public static void addIngredient(Ingredient ingredient) {
