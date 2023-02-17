@@ -56,8 +56,9 @@ public class CoffeeMachine {
     public static void updateMakeable() {
         for (Drink d : drinkList) {
             Map<String, Integer> currRecipe = d.getRecipe();
+            Recipe recipe = new Recipe(currRecipe);
             for (Ingredient i : ingredientList) {
-                boolean makeable = new Recipe(currRecipe).isMakeable(i);
+                boolean makeable = recipe.isMakeable(i);
                 d.setMakeable(makeable);
                 if (!makeable) {
                     break;
