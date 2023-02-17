@@ -13,6 +13,15 @@ public class Drink implements Comparable<Drink> {
         this.recipe = Recipe.fromRecipeNames(recipe);
     }
 
+    static void make(Drink drink, List<Ingredient> ingredientList) {
+        Recipe recipe = drink.getRecipe();
+        for (Ingredient i : ingredientList) {
+            if (recipe.containsRecipe(i)) {
+                i.setStock(i.getStock() - recipe.getQuantity(i));
+            }
+        }
+    }
+
     void updateCost(List<Ingredient> ingredientList) {
         setCost(calculateCost(ingredientList));
     }
