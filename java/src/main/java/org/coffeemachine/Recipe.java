@@ -9,6 +9,14 @@ public class Recipe {
         this.currRecipe = currRecipe;
     }
 
+    static Integer getQuantity(Recipe recipe, Ingredient i) {
+        return recipe.getCurrRecipe().get(i.getName());
+    }
+
+    static boolean containsReceipt(Recipe recipe, Ingredient i) {
+        return recipe.getCurrRecipe().containsKey(i.getName());
+    }
+
     boolean isMakeable(Ingredient i) {
         return !getCurrRecipe().containsKey(i.getName()) || i.getStock() >= getCurrRecipe().get(i.getName());
     }
