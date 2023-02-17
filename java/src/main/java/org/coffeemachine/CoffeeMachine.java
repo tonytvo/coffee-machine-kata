@@ -38,7 +38,7 @@ public class CoffeeMachine {
                     break;
                 }
                 if (input.equals("r")) {
-                    restockIngredients(new CliView());
+                    restockIngredients(cliView);
                     updateMakeable();
                 } else if (Integer.parseInt(input) > 0 && Integer.parseInt(input) <= drinkList.size()) { // dynamic
                                                                                                          // drink menu
