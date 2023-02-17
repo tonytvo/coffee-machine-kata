@@ -15,7 +15,7 @@ public class Drinks {
         }
     }
 
-    private List<Drink> getDrinkList() {
+    public List<Drink> getDrinkList() {
         return drinkList;
     }
 }
