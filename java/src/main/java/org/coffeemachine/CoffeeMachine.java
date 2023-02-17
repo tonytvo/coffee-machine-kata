@@ -33,7 +33,7 @@ public class CoffeeMachine {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input);
                     Model.makeDrink(Model.drinkList.get(drinkId), cliView);
                 }
-                Model.updateMakeable(Model.ingredientList, new Drinks(Model.drinkList));
+                Drinks.updateMakeable(Model.ingredientList, new Drinks(Model.drinkList));
                 cliView.askForSelection(Model.ingredientList, Model.drinkList);
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
