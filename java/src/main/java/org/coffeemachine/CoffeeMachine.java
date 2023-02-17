@@ -40,10 +40,10 @@ public class CoffeeMachine {
                     restockIngredients(cliView);
                 } else {
                     int drinkInput = Integer.parseInt(input);
-                    if (drinkInput > 0 && drinkInput <= drinkList.size()) {
-                        makeDrink(drinkList.get(drinkInput - 1), cliView);
-                    } else {
+                    if (drinkInput <= 0 || drinkInput > drinkList.size()) {
                         throw new IOException(); // legal, but invalid input
+                    } else {
+                        makeDrink(drinkList.get(drinkInput - 1), cliView);
                     }
                 }
                 updateMakeable();
