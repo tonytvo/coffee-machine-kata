@@ -30,7 +30,7 @@ public class CoffeeMachine {
                 if (input.equals("r")) {
                     Model.restockIngredients();
                 } else {
-                    int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input);
+                    int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, new Drinks(Model.drinkList));
                     Model.makeDrink(drinks.getDrink(drinkId), cliView);
                 }
                 drinks.updateMakeable(Model.ingredientList);
@@ -41,9 +41,9 @@ public class CoffeeMachine {
         }
     }
 
-    private static int parseDrinkIdAndThrowExceptionIfInvalid(String input) throws IOException {
+    private static int parseDrinkIdAndThrowExceptionIfInvalid(String input, Drinks drinks) throws IOException {
         int drinkInput = Integer.parseInt(input);
-        if (drinkInput <= 0 || new Drinks(Model.drinkList).isValidDrinkInput(drinkInput)) {
+        if (drinkInput <= 0 || drinks.isValidDrinkInput(drinkInput)) {
             throw new IOException(); // legal, but invalid input
         }
         return drinkInput - 1;
