@@ -16,10 +16,10 @@ public class Controller {
         return drinkInput - 1;
     }
 
-    public void startIO(CliView cliView,
-                        Drinks drinks,
-                        Ingredients ingredients,
-                        Supplier<InputStream> inputStreamSupplier) {
+    public void start(CliView cliView,
+                      Drinks drinks,
+                      Ingredients ingredients,
+                      Supplier<InputStream> inputStreamSupplier) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
 
