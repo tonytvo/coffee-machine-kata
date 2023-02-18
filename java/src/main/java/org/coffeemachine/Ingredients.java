@@ -9,9 +9,9 @@ public class Ingredients {
         this.ingredientList = ingredientList;
     }
 
-    static StringBuffer getInventory(Ingredients ingredients) {
+    StringBuffer getInventory() {
         StringBuffer inventory = new StringBuffer();
-        for (Ingredient i : ingredients.getIngredientList()) {
+        for (Ingredient i : getIngredientList()) {
             String inventoryForIngreident = i.getName() + "," + i.getStock();
             inventory.append(inventoryForIngreident).append("\n");
         }

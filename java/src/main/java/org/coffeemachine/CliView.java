@@ -6,7 +6,7 @@ public class CliView {
 
     public void askForSelection(List<Ingredient> ingredientList, Drinks drinks) {
         System.out.println("Inventory:");
-        StringBuffer inventory = Ingredients.getInventory(new Ingredients(ingredientList));
+        StringBuffer inventory = new Ingredients(ingredientList).getInventory();
         System.out.print(inventory);
 
         System.out.println("\nMenu:");
