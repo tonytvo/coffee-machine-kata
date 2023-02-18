@@ -67,6 +67,10 @@ public class Ingredients {
         return currCost;
     }
 
+    public void clear() {
+        ingredientList.clear();
+    }
+
     private static class Inventory {
 
         private final Map<Ingredient, Integer> inventoryByIngredient;

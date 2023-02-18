@@ -64,4 +64,8 @@ public class Drinks {
     private List<Drink> getDrinkList() {
         return drinkList;
     }
+
+    public void clear() {
+        drinkList.clear();;
+    }
 }

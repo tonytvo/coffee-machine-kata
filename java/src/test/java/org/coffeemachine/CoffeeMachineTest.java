@@ -46,6 +46,9 @@ public class CoffeeMachineTest {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
+        Model.drinks.clear();
+        Model.ingredients.clear();
+
         CoffeeMachine.main(new String []{});
 
         return output.toString();
