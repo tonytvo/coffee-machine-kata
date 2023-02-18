@@ -1,8 +1,6 @@
 package org.coffeemachine;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Ingredients {
     private final List<Ingredient> ingredientList;
@@ -14,6 +12,7 @@ public class Ingredients {
     }
 
     void updateIngredientsStockPerRecipe(Recipe recipe) {
+        inventory.reduceFrom(recipe);
         for (Ingredient i : getIngredientList()) {
             if (recipe.containsRecipe(i)) {
                 i.setStock(i.getStock() - recipe.getQuantity(i));
@@ -31,6 +30,7 @@ public class Ingredients {
 
     public void addIngredient(Ingredient ingredient) {
         getIngredientList().add(ingredient);
+        inventory.restock(ingredient);
     }
 
     StringBuffer getInventory() {
@@ -43,6 +43,7 @@ public class Ingredients {
     }
 
     public void restockIngredients() {
+        inventory.restock();
         for (Ingredient i : getIngredientList()) {
             i.setStock(10);
         }
@@ -62,6 +63,27 @@ public class Ingredients {
         return currCost;
     }
 
-    private class Inventory {
+    private static class Inventory {
+
+        private final Map<Ingredient, Integer> inventoryByIngredient;
+
+        public Inventory() {
+            inventoryByIngredient = new HashMap<>();
+        }
+
+        public void restock(Ingredient ingredient) {
+            inventoryByIngredient.put(ingredient, 10);
+        }
+
+        public void restock() {
+            inventoryByIngredient.keySet().forEach(this::restock);
+        }
+
+        public void reduceFrom(Recipe recipe) {
+            inventoryByIngredient.keySet().stream()
+                    .filter(recipe::containsRecipe)
+                    .forEach(ingredient -> inventoryByIngredient.put(ingredient, inventoryByIngredient.get(ingredient) - recipe.getQuantity(ingredient)));
+
+        }
     }
 }
