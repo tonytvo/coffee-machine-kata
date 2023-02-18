@@ -1,7 +1,6 @@
 package org.coffeemachine;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Model {
     static final Drinks drinks = new Drinks();
@@ -12,15 +11,6 @@ public class Model {
         addAllDrinks(drinks);
         drinks.updateCosts(ingredients);
         drinks.updateMakeable(ingredients);
-    }
-
-    public static void makeDrink(Drink drink, CliView cliView, Ingredients ingredients) {
-        if (drink.getMakeable()) {
-            cliView.displayDispensingDrink(drink.getName());
-            drink.make(ingredients);
-        } else {
-            cliView.displayOutOfStock(drink.getName());
-        }
     }
 
     public static void addAllIngredients(Ingredients ingredients) {

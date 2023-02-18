@@ -38,7 +38,13 @@ public class Controller {
                     ingredients.restockIngredients();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, drinks);
-                    Model.makeDrink(drinks.getDrink(drinkId), cliView, ingredients);
+                    Drink drink = drinks.getDrink(drinkId);
+                    if (drink.getMakeable()) {
+                        cliView.displayDispensingDrink(drink.getName());
+                        drink.make(ingredients);
+                    } else {
+                        cliView.displayOutOfStock(drink.getName());
+                    }
                 }
                 drinks.updateMakeable(ingredients);
                 cliView.askForSelection(drinks, ingredients);
