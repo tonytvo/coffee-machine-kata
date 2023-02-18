@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 
 public class CliView {
 
-    private static Supplier<PrintStream> outputStreamSupplier;
+    private final Supplier<PrintStream> outputStreamSupplier;
 
     public CliView(Supplier<PrintStream> printStreamSupplier) {
         outputStreamSupplier = printStreamSupplier;
