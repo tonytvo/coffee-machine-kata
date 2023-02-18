@@ -9,6 +9,12 @@ public class Ingredients {
         this.ingredientList = ingredientList;
     }
 
+    public static void restockIngredients(Ingredients ingredients) {
+        for (Ingredient i : ingredients.getIngredientList()) {
+            i.setStock(10);
+        }
+    }
+
     public List<Ingredient> getIngredientList() {
         return ingredientList;
     }

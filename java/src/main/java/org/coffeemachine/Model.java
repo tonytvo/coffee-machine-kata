@@ -24,12 +24,6 @@ public class Model {
         }
     }
 
-    public static void restockIngredients(Ingredients ingredients) {
-        for (Ingredient i : ingredients.getIngredientList()) {
-            i.setStock(10);
-        }
-    }
-
     public static void addIngredient(Ingredient ingredient) {
         ingredientList.add(ingredient);
     }
