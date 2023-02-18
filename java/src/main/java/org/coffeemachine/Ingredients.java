@@ -9,8 +9,8 @@ public class Ingredients {
         this.ingredientList = ingredientList;
     }
 
-    public static void restockIngredients(Ingredients ingredients) {
-        for (Ingredient i : ingredients.getIngredientList()) {
+    public void restockIngredients() {
+        for (Ingredient i : getIngredientList()) {
             i.setStock(10);
         }
     }

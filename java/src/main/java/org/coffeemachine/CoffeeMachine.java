@@ -29,7 +29,7 @@ public class CoffeeMachine {
                     break;
                 }
                 if (input.equals("r")) {
-                    Ingredients.restockIngredients(new Ingredients(Model.ingredientList));
+                    new Ingredients(Model.ingredientList).restockIngredients();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, drinks);
                     Model.makeDrink(drinks.getDrink(drinkId), cliView);
