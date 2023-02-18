@@ -14,11 +14,6 @@ public class Ingredients {
 
     void updateIngredientsStockPerRecipe(Recipe recipe) {
         inventory.reduceFrom(recipe);
-        for (Ingredient i : getIngredientList()) {
-            if (recipe.contains(i)) {
-                i.setStock(i.getStock() - recipe.quantityFor(i));
-            }
-        }
     }
 
     void sort() {
