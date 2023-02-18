@@ -18,6 +18,8 @@ public class Controller {
 
     public void start(CliView cliView,
                       Drinks drinks,
+                      Recipes recipes,
+                      Inventory inventory,
                       Ingredients ingredients,
                       Supplier<InputStream> inputStreamSupplier) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
