@@ -4,8 +4,9 @@ public class CoffeeMachine {
 
     public static void main(String[] args) {
         Costs costs = new Costs();
-        Drinks drinks = new Drinks(costs);
-        Ingredients ingredients = new Ingredients(costs);
+        Inventory inventory = new Inventory();
+        Drinks drinks = new Drinks(costs, inventory);
+        Ingredients ingredients = new Ingredients(costs, inventory);
         Model.initModel(drinks, ingredients, costs);
         CliView cliView = new CliView(() -> System.out);
         new Controller().start(cliView, drinks, ingredients, () -> System.in);

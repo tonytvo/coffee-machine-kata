@@ -6,9 +6,11 @@ public class Drinks {
     private final List<Drink> drinkList;
     private final Recipes recipes;
     private final Costs costs;
+    private final Inventory inventory;
 
-    public Drinks(Costs costs) {
+    public Drinks(Costs costs, Inventory inventory) {
         this.costs = costs;
+        this.inventory = inventory;
         this.drinkList = new ArrayList<>();
         this.recipes = new Recipes();
     }
@@ -22,7 +24,7 @@ public class Drinks {
     }
 
     boolean isMakeable(int drinkId) {
-        return getDrink(drinkId).getMakeable();
+        return inventory.canMake(recipes.getRecipe(getDrink(drinkId)));
     }
 
     boolean isValidDrinkInput(int drinkInput) {

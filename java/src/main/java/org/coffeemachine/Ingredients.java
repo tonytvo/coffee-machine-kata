@@ -7,9 +7,9 @@ public class Ingredients {
     private final Inventory inventory;
     private final Costs costs;
 
-    public Ingredients(Costs costs1) {
+    public Ingredients(Costs costs1, Inventory inventory) {
         this.ingredientList = new ArrayList<>();
-        this.inventory = new Inventory();
+        this.inventory = inventory;
         this.costs = costs1;
     }
 
