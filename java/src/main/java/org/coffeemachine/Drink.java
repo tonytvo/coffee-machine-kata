@@ -1,5 +1,7 @@
 package org.coffeemachine;
 
+import java.util.Objects;
+
 public class Drink implements Comparable<Drink> {
     private final String name;
     private final Recipe recipe;
@@ -53,4 +55,16 @@ public class Drink implements Comparable<Drink> {
         return makeable;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Drink drink = (Drink) o;
+        return name.equals(drink.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }

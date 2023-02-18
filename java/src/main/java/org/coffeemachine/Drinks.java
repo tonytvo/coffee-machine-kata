@@ -50,7 +50,10 @@ public class Drinks {
         int count = 1;
         StringBuffer menu = new StringBuffer();
         for (Drink d : getDrinkList()) {
-            menu.append(String.format("%d,%s,$%.2f," + d.getMakeable() + "\n", count, d.getName(), d.getCost()));
+            menu.append(String.format("%d,%s,$%.2f," + d.getMakeable() + "\n",
+                    count,
+                    d.getName(),
+                    costs.calculateCost(recipes.getRecipe(d))));
             count++;
         }
         return menu;
@@ -84,6 +87,10 @@ public class Drinks {
 
         public void put(Drink drink, Recipe recipe) {
             drinkRecipes.put(drink, recipe);
+        }
+
+        public Recipe getRecipe(Drink drink) {
+            return drinkRecipes.get(drink);
         }
     }
 }
