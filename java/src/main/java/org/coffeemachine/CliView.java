@@ -11,12 +11,12 @@ public class CliView {
         outputStreamSupplier = printStreamSupplier;
     }
 
-    public void askForSelection(Drinks drinks, String inventory) {
+    public void askForSelection(String inventory, StringBuffer drinksMenu) {
         outputStreamSupplier.get().println("Inventory:");
         outputStreamSupplier.get().print(inventory);
 
         outputStreamSupplier.get().println("\nMenu:");
-        outputStreamSupplier.get().print(drinks.getDrinksMenu());
+        outputStreamSupplier.get().print(drinksMenu);
 
         outputStreamSupplier.get().print("\nYour selection: ");
     }

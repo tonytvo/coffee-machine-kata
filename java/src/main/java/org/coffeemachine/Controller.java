@@ -22,7 +22,7 @@ public class Controller {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
 
-        cliView.askForSelection(coffeeMachine.getDrinks(), coffeeMachine.getInventory().summary());
+        cliView.askForSelection(coffeeMachine.getInventory().summary(), coffeeMachine.getDrinks().getDrinksMenu());
         while (true) {
             try {
                 input = reader.readLine().toLowerCase();
@@ -44,7 +44,7 @@ public class Controller {
                         cliView.displayOutOfStock(coffeeMachine.getDrinks().getName(drinkId));
                     }
                 }
-                cliView.askForSelection(coffeeMachine.getDrinks(), coffeeMachine.getInventory().summary());
+                cliView.askForSelection(coffeeMachine.getInventory().summary(), coffeeMachine.getDrinks().getDrinksMenu());
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }
