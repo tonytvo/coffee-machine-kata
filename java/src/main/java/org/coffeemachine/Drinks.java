@@ -33,7 +33,7 @@ public class Drinks {
 
     public void addDrink(String name, String[] recipe) {
         Recipe recipeForDrink = Recipe.fromRecipeNames(recipe);
-        Drink drink = new Drink(name, recipeForDrink);
+        Drink drink = new Drink(name);
         getDrinkList().add(drink);
         recipes.put(drink, recipeForDrink);
     }

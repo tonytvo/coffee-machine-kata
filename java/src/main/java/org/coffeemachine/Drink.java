@@ -4,15 +4,9 @@ import java.util.Objects;
 
 public class Drink implements Comparable<Drink> {
     private final String name;
-    private final Recipe recipe;
 
-    public Drink(String name, Recipe recipe1) {
+    public Drink(String name) {
         this.name = name;
-        this.recipe = recipe1;
-    }
-
-    private Recipe getRecipe() {
-        return recipe;
     }
 
     public int compareTo(Drink drink) {
