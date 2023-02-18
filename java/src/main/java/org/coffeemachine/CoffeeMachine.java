@@ -13,7 +13,6 @@ public class CoffeeMachine {
         Ingredients ingredients = Model.ingredients;
         Model.initModel(drinks, ingredients);
         CliView cliView = new CliView(() -> System.out);
-        cliView.askForSelection(drinks, ingredients);
         startIO(cliView, drinks, ingredients, () -> System.in);
     }
 
@@ -24,6 +23,7 @@ public class CoffeeMachine {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
 
+        cliView.askForSelection(drinks, ingredients);
         while (true) {
             try {
                 input = reader.readLine().toLowerCase();
