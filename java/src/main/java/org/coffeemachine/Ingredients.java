@@ -13,10 +13,6 @@ public class Ingredients {
         this.costs = costs1;
     }
 
-    void updateIngredientsStockPerRecipe(Recipe recipe) {
-        inventory.reduceFrom(recipe);
-    }
-
     void sort() {
         Collections.sort(getIngredientList());
     }
