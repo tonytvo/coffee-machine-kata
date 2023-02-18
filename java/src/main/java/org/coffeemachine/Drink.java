@@ -5,7 +5,6 @@ import java.util.Objects;
 public class Drink implements Comparable<Drink> {
     private final String name;
     private final Recipe recipe;
-    private boolean makeable = false;
 
     public Drink(String name, Recipe recipe1) {
         this.name = name;
@@ -23,10 +22,6 @@ public class Drink implements Comparable<Drink> {
 
     public int compareTo(Drink drink) {
         return name.compareTo(drink.getName());
-    }
-
-    public void setMakeable(boolean makeable) {
-        this.makeable = makeable;
     }
 
     public String getName() {
