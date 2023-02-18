@@ -7,10 +7,19 @@ import java.io.InputStreamReader;
 import java.util.function.Supplier;
 
 public class Controller {
-    public static void startIO(CliView cliView,
-                               Drinks drinks,
-                               Ingredients ingredients,
-                               Supplier<InputStream> inputStreamSupplier) {
+
+    private static int parseDrinkIdAndThrowExceptionIfInvalid(String input, Drinks drinks) throws IOException {
+        int drinkInput = Integer.parseInt(input);
+        if (drinkInput <= 0 || drinks.isValidDrinkInput(drinkInput)) {
+            throw new IOException(); // legal, but invalid input
+        }
+        return drinkInput - 1;
+    }
+
+    public void startIO(CliView cliView,
+                        Drinks drinks,
+                        Ingredients ingredients,
+                        Supplier<InputStream> inputStreamSupplier) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
 
@@ -37,13 +46,5 @@ public class Controller {
                 cliView.displayInvalidSelection(input);
             }
         }
-    }
-
-    private static int parseDrinkIdAndThrowExceptionIfInvalid(String input, Drinks drinks) throws IOException {
-        int drinkInput = Integer.parseInt(input);
-        if (drinkInput <= 0 || drinks.isValidDrinkInput(drinkInput)) {
-            throw new IOException(); // legal, but invalid input
-        }
-        return drinkInput - 1;
     }
 }

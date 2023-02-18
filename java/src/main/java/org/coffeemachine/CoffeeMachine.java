@@ -7,7 +7,7 @@ public class CoffeeMachine {
         Ingredients ingredients = Model.ingredients;
         Model.initModel(drinks, ingredients);
         CliView cliView = new CliView(() -> System.out);
-        Controller.startIO(cliView, drinks, ingredients, () -> System.in);
+        new Controller().startIO(cliView, drinks, ingredients, () -> System.in);
     }
 
 }
