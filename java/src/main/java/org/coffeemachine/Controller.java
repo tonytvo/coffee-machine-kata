@@ -40,11 +40,11 @@ public class Controller {
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input,
                             number -> coffeeMachine.isValidDrinkInput(number));
-                    if (coffeeMachine.getDrinks().isMakeable(drinkId)) {
-                        cliView.displayDispensingDrink(coffeeMachine.getDrinks().getName(drinkId));
+                    if (coffeeMachine.canMakeDrink(drinkId)) {
+                        cliView.displayDispensingDrink(coffeeMachine.getNameForDrink(drinkId));
                         coffeeMachine.makeDrink(drinkId);
                     } else {
-                        cliView.displayOutOfStock(coffeeMachine.getDrinks().getName(drinkId));
+                        cliView.displayOutOfStock(coffeeMachine.getNameForDrink(drinkId));
                     }
                 }
                 cliView.askForSelection(coffeeMachine.getIventorySummary(), coffeeMachine.getDrinksMenu());

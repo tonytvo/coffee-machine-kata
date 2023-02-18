@@ -11,6 +11,14 @@ class CoffeeMachine {
         this.inventory = inventory;
     }
 
+    boolean canMakeDrink(int drinkId) {
+        return drinks.isMakeable(drinkId);
+    }
+
+    String getNameForDrink(int drinkId) {
+        return drinks.getName(drinkId);
+    }
+
     String getIventorySummary() {
         return inventory.summary();
     }
@@ -20,20 +28,16 @@ class CoffeeMachine {
     }
 
     String getDrinksMenu() {
-        return getDrinks().getDrinksMenu().toString();
+        return drinks.getDrinksMenu().toString();
     }
 
     boolean isValidDrinkInput(Integer number) {
-        return getDrinks().isValidDrinkInput(number);
+        return drinks.isValidDrinkInput(number);
     }
 
     void makeDrink(int drinkId) {
         Recipe recipe = this.recipes.getRecipe(this.drinks.getDrink(drinkId));
         this.inventory.reduceFrom(recipe);
-    }
-
-    public Drinks getDrinks() {
-        return drinks;
     }
 
 }
