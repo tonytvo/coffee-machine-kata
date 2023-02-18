@@ -6,9 +6,12 @@ public class CliView {
 
     public void askForSelection(List<Ingredient> ingredientList, Drinks drinks) {
         System.out.println("Inventory:");
+        StringBuffer inventory = new StringBuffer();
         for (Ingredient i : ingredientList) {
-            System.out.println(i.getName() + "," + i.getStock());
+            String inventoryForIngreident = i.getName() + "," + i.getStock();
+            inventory.append(inventoryForIngreident).append("\n");
         }
+        System.out.print(inventory);
 
         System.out.println("\nMenu:");
         System.out.print(drinks.getDrinksMenu());
