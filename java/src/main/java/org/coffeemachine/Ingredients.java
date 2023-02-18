@@ -44,12 +44,10 @@ public class Ingredients {
     }
 
     double calculateCost(Recipe recipe) {
-        double currCost = 0;
-        for (Ingredient i : getIngredientList()) {
-            if (recipe.contains(i)) {
-                currCost += i.getCost() * recipe.quantityFor(i);
-            }
-        }
+        double currCost = getIngredientList().stream()
+                .filter(recipe::contains)
+                .mapToDouble(i -> i.getCost() * recipe.quantityFor(i))
+                .sum();
         return currCost;
     }
 
