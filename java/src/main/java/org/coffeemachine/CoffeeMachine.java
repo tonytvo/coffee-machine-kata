@@ -3,8 +3,8 @@ package org.coffeemachine;
 public class CoffeeMachine {
 
     public static void main(String[] args) {
-        Drinks drinks = new Drinks();
         Costs costs = new Costs();
+        Drinks drinks = new Drinks(costs);
         Ingredients ingredients = new Ingredients(costs);
         Model.initModel(drinks, ingredients, costs);
         CliView cliView = new CliView(() -> System.out);

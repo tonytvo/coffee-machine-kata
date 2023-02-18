@@ -5,8 +5,10 @@ import java.util.*;
 public class Drinks {
     private final List<Drink> drinkList;
     private final Recipes recipes;
+    private final Costs costs;
 
-    public Drinks() {
+    public Drinks(Costs costs) {
+        this.costs = costs;
         this.drinkList = new ArrayList<>();
         this.recipes = new Recipes();
     }
