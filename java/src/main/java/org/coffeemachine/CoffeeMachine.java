@@ -11,6 +11,10 @@ class CoffeeMachine {
         this.inventory = inventory;
     }
 
+    static String getDrinksMenu(CoffeeMachine coffeeMachine) {
+        return coffeeMachine.getDrinks().getDrinksMenu().toString();
+    }
+
     void makeDrink(int drinkId) {
         Recipe recipe = this.recipes.getRecipe(this.drinks.getDrink(drinkId));
         this.inventory.reduceFrom(recipe);
