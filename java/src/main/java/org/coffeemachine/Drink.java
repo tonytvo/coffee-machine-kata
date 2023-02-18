@@ -15,15 +15,7 @@ public class Drink implements Comparable<Drink> {
 
     void make(List<Ingredient> ingredientList) {
         Recipe recipe = getRecipe();
-        updateIngredientsStockPerRecipe(ingredientList, recipe);
-    }
-
-    private static void updateIngredientsStockPerRecipe(List<Ingredient> ingredientList, Recipe recipe) {
-        for (Ingredient i : ingredientList) {
-            if (recipe.containsRecipe(i)) {
-                i.setStock(i.getStock() - recipe.getQuantity(i));
-            }
-        }
+        new Ingredients(ingredientList).updateIngredientsStockPerRecipe(recipe);
     }
 
     void updateCost(Ingredients ingredients) {

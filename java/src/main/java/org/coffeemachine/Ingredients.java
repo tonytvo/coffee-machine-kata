@@ -10,6 +10,14 @@ public class Ingredients {
         this.ingredientList = ingredientList;
     }
 
+    void updateIngredientsStockPerRecipe(Recipe recipe) {
+        for (Ingredient i : getIngredientList()) {
+            if (recipe.containsRecipe(i)) {
+                i.setStock(i.getStock() - recipe.getQuantity(i));
+            }
+        }
+    }
+
     void sort() {
         Collections.sort(getIngredientList());
     }
