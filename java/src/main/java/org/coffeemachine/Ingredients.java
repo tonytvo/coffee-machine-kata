@@ -32,7 +32,7 @@ public class Ingredients {
         }
     }
 
-    public List<Ingredient> getIngredientList() {
+    private List<Ingredient> getIngredientList() {
         return ingredientList;
     }
 }
