@@ -8,7 +8,7 @@ public class CoffeeMachineApp {
         Recipes recipes = new Recipes();
         Drinks drinks = new Drinks(costs, inventory, recipes);
 
-        Model.initModel(drinks, costs, inventory);
+        AppConfig.initModel(drinks, costs, inventory);
 
         CliView cliView = new CliView(() -> System.out);
 

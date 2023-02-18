@@ -59,8 +59,4 @@ public class Drinks {
         return drinkList;
     }
 
-    public void clear() {
-        drinkList.clear();;
-    }
-
 }

@@ -16,11 +16,10 @@ class Costs {
     }
 
     public double calculateCost(Recipe recipe) {
-        double currCost = ingredientCosts.keySet().stream()
+        return ingredientCosts.keySet().stream()
                 .filter(recipe::contains)
                 .mapToDouble(ingredient -> ingredientCosts.get(ingredient) * recipe.quantityFor(ingredient))
                 .sum();
-        return currCost;
     }
 
 }

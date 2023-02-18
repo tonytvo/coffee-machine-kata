@@ -9,15 +9,6 @@ import java.util.function.Supplier;
 
 public class Controller {
 
-    private static int parseDrinkIdAndThrowExceptionIfInvalid(String input,
-                                                              Function<Integer, Boolean> isValidDrinkInput) throws IOException {
-        int drinkInput = Integer.parseInt(input);
-        if (drinkInput <= 0 || isValidDrinkInput.apply(drinkInput)) {
-            throw new IOException(); // legal, but invalid input
-        }
-        return drinkInput - 1;
-    }
-
     public void start(CliView cliView,
                       CoffeeMachine coffeeMachine,
                       Supplier<InputStream> inputStreamSupplier) {
@@ -39,7 +30,7 @@ public class Controller {
                     coffeeMachine.restock();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input,
-                            number -> coffeeMachine.isValidDrinkInput(number));
+                            coffeeMachine::isValidDrinkInput);
                     if (coffeeMachine.canMakeDrink(drinkId)) {
                         cliView.displayDispensingDrink(coffeeMachine.getNameForDrink(drinkId));
                         coffeeMachine.makeDrink(drinkId);
@@ -54,4 +45,12 @@ public class Controller {
         }
     }
 
+    private static int parseDrinkIdAndThrowExceptionIfInvalid(String input,
+                                                              Function<Integer, Boolean> isValidDrinkInput) throws IOException {
+        int drinkInput = Integer.parseInt(input);
+        if (drinkInput <= 0 || isValidDrinkInput.apply(drinkInput)) {
+            throw new IOException(); // legal, but invalid input
+        }
+        return drinkInput - 1;
+    }
 }

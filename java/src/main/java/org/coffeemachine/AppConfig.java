@@ -1,28 +1,20 @@
 package org.coffeemachine;
 
-public class Model {
+public class AppConfig {
     static void initModel(Drinks drinks, Costs costs, Inventory inventory) {
-        addAllIngredients(costs, inventory);
-        addAllDrinks(drinks);
+        initalizeAllIngredients(costs, inventory);
+        initializerDrinks(drinks);
     }
 
-    public static void addAllIngredients(Costs costs, Inventory inventory) {
+    public static void initalizeAllIngredients(Costs costs, Inventory inventory) {
         addIngredient("Coffee", inventory, costs, 0.75);
-
         addIngredient("Decaf Coffee", inventory, costs, 0.75);
-
         addIngredient("Sugar", inventory, costs, 0.25);
-
         addIngredient("Cream", inventory, costs, 0.25);
-
         addIngredient("Steamed Milk", inventory, costs, 0.35);
-
         addIngredient("Foamed Milk", inventory, costs, 0.35);
-
         addIngredient("Espresso", inventory, costs, 1.10);
-
         addIngredient("Cocoa", inventory, costs, 0.90);
-
         addIngredient("Whipped Cream", inventory, costs, 1.00);
     }
 
@@ -32,7 +24,7 @@ public class Model {
         costs.set(ingredient8, cost);
     }
 
-    public static void addAllDrinks(Drinks drinks) {
+    public static void initializerDrinks(Drinks drinks) {
         drinks.addDrink("Coffee", new String[]{"Coffee", "Coffee", "Coffee", "Sugar", "Cream"});
         drinks.addDrink("Decaf Coffee", new String[]{"Decaf Coffee", "Decaf Coffee", "Decaf Coffee", "Sugar", "Cream"});
         drinks.addDrink("Caffe Latte", new String[]{"Espresso", "Espresso", "Steamed Milk"});
