@@ -11,6 +11,10 @@ public class Drinks {
         this.drinkList = new ArrayList<>();
     }
 
+    void makeFor(Ingredients ingredients, int drinkId) {
+        getDrink(drinkId).make(ingredients);
+    }
+
     String getName(int drinkId) {
         return getDrink(drinkId).getName();
     }
