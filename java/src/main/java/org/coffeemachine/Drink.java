@@ -28,8 +28,7 @@ public class Drink implements Comparable<Drink> {
 
      void updateMakable(Ingredients ingredients) {
         Recipe recipe = getRecipe();
-         boolean isMakeable = ingredients.isMakeable(recipe);
-         setMakeable(isMakeable);
+         setMakeable(ingredients.isMakeable(recipe));
     }
 
     private double calculateCost(List<Ingredient> ingredientList1) {
