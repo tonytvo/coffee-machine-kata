@@ -17,14 +17,12 @@ public class Controller {
     }
 
     public void start(CliView cliView,
-                      Drinks drinks,
-                      Recipes recipes,
-                      Inventory inventory,
+                      CoffeeMachine coffeeMachine,
                       Supplier<InputStream> inputStreamSupplier) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
 
-        cliView.askForSelection(drinks, inventory.summary());
+        cliView.askForSelection(coffeeMachine.getDrinks(), coffeeMachine.getInventory().summary());
         while (true) {
             try {
                 input = reader.readLine().toLowerCase();
@@ -36,26 +34,20 @@ public class Controller {
                     break;
                 }
                 if (input.equals("r")) {
-                    inventory.restock();
+                    coffeeMachine.getInventory().restock();
                 } else {
-                    int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, drinks);
-                    if (drinks.isMakeable(drinkId)) {
-                        cliView.displayDispensingDrink(drinks.getName(drinkId));
-                        makeDrink(drinks, recipes, inventory, drinkId);
+                    int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, coffeeMachine.getDrinks());
+                    if (coffeeMachine.getDrinks().isMakeable(drinkId)) {
+                        cliView.displayDispensingDrink(coffeeMachine.getDrinks().getName(drinkId));
+                        coffeeMachine.makeDrink(drinkId);
                     } else {
-                        cliView.displayOutOfStock(drinks.getName(drinkId));
+                        cliView.displayOutOfStock(coffeeMachine.getDrinks().getName(drinkId));
                     }
                 }
-                cliView.askForSelection(drinks, inventory.summary());
+                cliView.askForSelection(coffeeMachine.getDrinks(), coffeeMachine.getInventory().summary());
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }
         }
     }
-
-    private static void makeDrink(Drinks drinks, Recipes recipes, Inventory inventory, int drinkId) {
-        Recipe recipe = recipes.getRecipe(drinks.getDrink(drinkId));
-        inventory.reduceFrom(recipe);
-    }
-
 }

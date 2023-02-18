@@ -13,10 +13,7 @@ public class CoffeeMachineApp {
         CliView cliView = new CliView(() -> System.out);
 
         new Controller().start(cliView,
-                drinks,
-                recipes,
-                inventory,
-                () -> System.in);
+                new CoffeeMachine(drinks, recipes, inventory), () -> System.in);
     }
 
 }
