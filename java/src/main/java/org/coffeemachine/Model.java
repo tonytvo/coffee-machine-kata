@@ -4,14 +4,14 @@ public class Model {
     static final Drinks drinks = new Drinks();
     static final Ingredients ingredients = new Ingredients();
 
-    static void initModel(Drinks drinks, Ingredients ingredients) {
-        addAllIngredients(ingredients);
+    static void initModel(Drinks drinks, Ingredients ingredients, Costs costs) {
+        addAllIngredients(ingredients, costs);
         addAllDrinks(drinks);
         drinks.updateCosts(ingredients);
         drinks.updateMakeable(ingredients);
     }
 
-    public static void addAllIngredients(Ingredients ingredients) {
+    public static void addAllIngredients(Ingredients ingredients, Costs costs) {
         ingredients.addIngredient(new Ingredient("Coffee", 0.75), 0.75);
         ingredients.addIngredient(new Ingredient("Decaf Coffee", 0.75), 0.75);
         ingredients.addIngredient(new Ingredient("Sugar", 0.25), 0.25);
