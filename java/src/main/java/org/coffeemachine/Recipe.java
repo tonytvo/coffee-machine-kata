@@ -24,6 +24,7 @@ public class Recipe {
     }
 
     Integer getQuantity(Ingredient i) {
+        if (!getQuantityByIngredient().containsKey(i)) return  0;
         return getQuantityByIngredient().get(i);
     }
 
