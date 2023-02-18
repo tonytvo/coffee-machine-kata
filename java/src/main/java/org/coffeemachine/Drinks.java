@@ -49,7 +49,7 @@ public class Drinks {
         }
     }
 
-    public List<Drink> getDrinkList() {
+    private List<Drink> getDrinkList() {
         return drinkList;
     }
 }
