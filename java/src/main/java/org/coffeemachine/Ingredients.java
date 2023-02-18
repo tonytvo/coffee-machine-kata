@@ -31,10 +31,6 @@ public class Ingredients {
         return inventory.summary();
     }
 
-    public void restockIngredients() {
-        inventory.restock();
-    }
-
     private List<Ingredient> getIngredientList() {
         return ingredientList;
     }

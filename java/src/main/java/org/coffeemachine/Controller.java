@@ -37,13 +37,12 @@ public class Controller {
                     break;
                 }
                 if (input.equals("r")) {
-                    ingredients.restockIngredients();
+                    inventory.restock();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, drinks);
                     if (drinks.isMakeable(drinkId)) {
                         cliView.displayDispensingDrink(drinks.getName(drinkId));
-                        Recipe recipe = recipes.getRecipe(drinks.getDrink(drinkId));
-                        inventory.reduceFrom(recipe);
+                        makeDrink(drinks, recipes, inventory, drinkId);
                     } else {
                         cliView.displayOutOfStock(drinks.getName(drinkId));
                     }
@@ -53,6 +52,11 @@ public class Controller {
                 cliView.displayInvalidSelection(input);
             }
         }
+    }
+
+    private static void makeDrink(Drinks drinks, Recipes recipes, Inventory inventory, int drinkId) {
+        Recipe recipe = recipes.getRecipe(drinks.getDrink(drinkId));
+        inventory.reduceFrom(recipe);
     }
 
 }
