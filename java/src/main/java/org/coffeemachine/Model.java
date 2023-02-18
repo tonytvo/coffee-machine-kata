@@ -8,7 +8,7 @@ public class Model {
     static final List<Ingredient> ingredientList = new ArrayList<>();
 
     static void initModel(Drinks drinks) {
-        addAllIngredients();
+        addAllIngredients(new Ingredients(ingredientList));
         addAllDrinks(drinks);
         drinks.updateCosts(new Ingredients(ingredientList));
         drinks.updateMakeable(new Ingredients(ingredientList));
@@ -23,18 +23,18 @@ public class Model {
         }
     }
 
-    public static void addAllIngredients() {
-        new Ingredients(ingredientList).addIngredient(new Ingredient("Coffee", 0.75));
-        new Ingredients(ingredientList).addIngredient(new Ingredient("Decaf Coffee", 0.75));
-        new Ingredients(ingredientList).addIngredient(new Ingredient("Sugar", 0.25));
-        new Ingredients(ingredientList).addIngredient(new Ingredient("Cream", 0.25));
-        new Ingredients(ingredientList).addIngredient(new Ingredient("Steamed Milk", 0.35));
-        new Ingredients(ingredientList).addIngredient(new Ingredient("Foamed Milk", 0.35));
-        new Ingredients(ingredientList).addIngredient(new Ingredient("Espresso", 1.10));
-        new Ingredients(ingredientList).addIngredient(new Ingredient("Cocoa", 0.90));
-        new Ingredients(ingredientList).addIngredient(new Ingredient("Whipped Cream", 1.00));
+    public static void addAllIngredients(Ingredients ingredients) {
+        ingredients.addIngredient(new Ingredient("Coffee", 0.75));
+        ingredients.addIngredient(new Ingredient("Decaf Coffee", 0.75));
+        ingredients.addIngredient(new Ingredient("Sugar", 0.25));
+        ingredients.addIngredient(new Ingredient("Cream", 0.25));
+        ingredients.addIngredient(new Ingredient("Steamed Milk", 0.35));
+        ingredients.addIngredient(new Ingredient("Foamed Milk", 0.35));
+        ingredients.addIngredient(new Ingredient("Espresso", 1.10));
+        ingredients.addIngredient(new Ingredient("Cocoa", 0.90));
+        ingredients.addIngredient(new Ingredient("Whipped Cream", 1.00));
 
-        new Ingredients(ingredientList).sort();
+        ingredients.sort();
     }
 
     public static void addAllDrinks(Drinks drinks) {
