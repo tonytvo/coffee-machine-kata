@@ -32,10 +32,6 @@ public class Recipe {
         return getQuantityByIngredient().containsKey(i);
     }
 
-    boolean isMakeable(Ingredient i) {
-        return !contains(i) || i.getStock() >= getQuantityByIngredient().get(i);
-    }
-
     private Map<Ingredient, Integer> getQuantityByIngredient() {
         return quantityByRecipeName;
     }
