@@ -44,11 +44,7 @@ public class Ingredients {
     }
 
     double calculateCost(Recipe recipe) {
-        double currCost = getIngredientList().stream()
-                .filter(recipe::contains)
-                .mapToDouble(i -> i.getCost() * recipe.quantityFor(i))
-                .sum();
-        return currCost;
+        return costs.calculateCost(recipe);
     }
 
     public void clear() {
@@ -66,5 +62,14 @@ public class Ingredients {
         public void set(Ingredient ingredient, double cost) {
             ingredientCosts.put(ingredient, cost);
         }
+
+        double calculateCost(Recipe recipe) {
+            double currCost = ingredientCosts.keySet().stream()
+                    .filter(recipe::contains)
+                    .mapToDouble(ingredient -> ingredient.getCost() * recipe.quantityFor(ingredient))
+                    .sum();
+            return currCost;
+        }
+
     }
 }
