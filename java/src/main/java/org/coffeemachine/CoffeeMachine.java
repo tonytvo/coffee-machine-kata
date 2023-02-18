@@ -10,7 +10,7 @@ public class CoffeeMachine {
         Drinks drinks = Model.drinks;
         Ingredients ingredients = Model.ingredients;
         Model.initModel(drinks, ingredients);
-        CliView cliView = new CliView();
+        CliView cliView = new CliView(() -> System.out);
         cliView.askForSelection(drinks, ingredients);
         startIO(cliView, drinks, ingredients);
     }

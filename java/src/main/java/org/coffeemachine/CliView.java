@@ -7,8 +7,8 @@ public class CliView {
 
     private static Supplier<PrintStream> outputStreamSupplier;
 
-    public CliView() {
-        outputStreamSupplier = () -> System.out;
+    public CliView(Supplier<PrintStream> printStreamSupplier) {
+        outputStreamSupplier = printStreamSupplier;
     }
 
     public void askForSelection(Drinks drinks, Ingredients ingredients) {
