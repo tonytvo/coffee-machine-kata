@@ -51,25 +51,4 @@ public class Ingredients {
         ingredientList.clear();
     }
 
-    private static class Costs {
-
-        private final Map<Ingredient, Double> ingredientCosts;
-
-        public Costs() {
-            ingredientCosts = new HashMap<>();
-        }
-
-        public void set(Ingredient ingredient, double cost) {
-            ingredientCosts.put(ingredient, cost);
-        }
-
-        double calculateCost(Recipe recipe) {
-            double currCost = ingredientCosts.keySet().stream()
-                    .filter(recipe::contains)
-                    .mapToDouble(ingredient -> ingredient.getCost() * recipe.quantityFor(ingredient))
-                    .sum();
-            return currCost;
-        }
-
-    }
 }
