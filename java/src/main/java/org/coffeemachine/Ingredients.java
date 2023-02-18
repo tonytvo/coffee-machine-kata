@@ -9,6 +9,10 @@ public class Ingredients {
         this.ingredientList = ingredientList;
     }
 
+    boolean isMakeable(Recipe recipe) {
+        return getIngredientList().stream().allMatch(recipe::isMakeable);
+    }
+
     public void addIngredient(Ingredient ingredient) {
         getIngredientList().add(ingredient);
     }
