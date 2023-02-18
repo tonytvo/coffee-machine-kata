@@ -1,21 +1,35 @@
 package org.coffeemachine;
 
 public class Model {
-    static void initModel(Drinks drinks, Ingredients ingredients, Costs costs) {
-        addAllIngredients(ingredients, costs);
+    static void initModel(Drinks drinks, Ingredients ingredients, Costs costs, Inventory inventory) {
+        addAllIngredients(ingredients, costs, inventory);
         addAllDrinks(drinks);
     }
 
-    public static void addAllIngredients(Ingredients ingredients, Costs costs) {
-        ingredients.addIngredient(new Ingredient("Coffee"), 0.75);
-        ingredients.addIngredient(new Ingredient("Decaf Coffee"), 0.75);
-        ingredients.addIngredient(new Ingredient("Sugar"), 0.25);
-        ingredients.addIngredient(new Ingredient("Cream"), 0.25);
-        ingredients.addIngredient(new Ingredient("Steamed Milk"), 0.35);
-        ingredients.addIngredient(new Ingredient("Foamed Milk"), 0.35);
-        ingredients.addIngredient(new Ingredient("Espresso"), 1.10);
-        ingredients.addIngredient(new Ingredient("Cocoa"), 0.90);
-        ingredients.addIngredient(new Ingredient("Whipped Cream"), 1.00);
+    public static void addAllIngredients(Ingredients ingredients, Costs costs, Inventory inventory) {
+        addIngredient("Coffee", inventory, costs, 0.75);
+
+        addIngredient("Decaf Coffee", inventory, costs, 0.75);
+
+        addIngredient("Sugar", inventory, costs, 0.25);
+
+        addIngredient("Cream", inventory, costs, 0.25);
+
+        addIngredient("Steamed Milk", inventory, costs, 0.35);
+
+        addIngredient("Foamed Milk", inventory, costs, 0.35);
+
+        addIngredient("Espresso", inventory, costs, 1.10);
+
+        addIngredient("Cocoa", inventory, costs, 0.90);
+
+        addIngredient("Whipped Cream", inventory, costs, 1.00);
+    }
+
+    private static void addIngredient(String Coffee, Inventory inventory, Costs costs, double cost) {
+        Ingredient ingredient8 = new Ingredient(Coffee);
+        inventory.restock(ingredient8);
+        costs.set(ingredient8, cost);
     }
 
     public static void addAllDrinks(Drinks drinks) {
