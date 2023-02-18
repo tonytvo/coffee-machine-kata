@@ -12,29 +12,25 @@ public class CliView {
     }
 
     public void askForSelection(Drinks drinks, Ingredients ingredients) {
-        getOutputStream().println("Inventory:");
+        outputStreamSupplier.get().println("Inventory:");
         StringBuffer inventory = ingredients.getInventory();
-        getOutputStream().print(inventory);
+        outputStreamSupplier.get().print(inventory);
 
-        getOutputStream().println("\nMenu:");
-        getOutputStream().print(drinks.getDrinksMenu());
+        outputStreamSupplier.get().println("\nMenu:");
+        outputStreamSupplier.get().print(drinks.getDrinksMenu());
 
-        getOutputStream().print("\nYour selection: ");
-    }
-
-    private static PrintStream getOutputStream() {
-        return outputStreamSupplier.get();
+        outputStreamSupplier.get().print("\nYour selection: ");
     }
 
     void displayOutOfStock(String drinkName) {
-        getOutputStream().println("Out of stock: " + drinkName + "\n");
+        outputStreamSupplier.get().println("Out of stock: " + drinkName + "\n");
     }
 
     void displayDispensingDrink(String drinkName) {
-        getOutputStream().println("Dispensing: " + drinkName + "\n");
+        outputStreamSupplier.get().println("Dispensing: " + drinkName + "\n");
     }
 
     void displayInvalidSelection(String input) {
-        getOutputStream().print("Invalid selection: " + input + ". Try again: "); // illegal input
+        outputStreamSupplier.get().print("Invalid selection: " + input + ". Try again: "); // illegal input
     }
 }
