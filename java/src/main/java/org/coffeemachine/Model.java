@@ -35,6 +35,10 @@ public class Model {
         new Ingredients(ingredientList).addIngredient(new Ingredient("Cocoa", 0.90));
         new Ingredients(ingredientList).addIngredient(new Ingredient("Whipped Cream", 1.00));
 
+        sort();
+    }
+
+    private static void sort() {
         Collections.sort(ingredientList);
     }
 
