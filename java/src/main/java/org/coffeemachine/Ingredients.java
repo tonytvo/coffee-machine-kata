@@ -35,9 +35,6 @@ public class Ingredients {
 
     public void restockIngredients() {
         inventory.restock();
-        for (Ingredient i : getIngredientList()) {
-            i.setStock(10);
-        }
     }
 
     private List<Ingredient> getIngredientList() {
