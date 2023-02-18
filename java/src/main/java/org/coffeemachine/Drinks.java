@@ -46,7 +46,7 @@ public class Drinks {
         int count = 1;
         StringBuffer menu = new StringBuffer();
         for (Drink d : getDrinkList()) {
-            menu.append(String.format("%d,%s,$%.2f," + d.getMakeable() + "\n",
+            menu.append(String.format("%d,%s,$%.2f," + inventory.canMake(recipes.getRecipe(d)) + "\n",
                     count,
                     d.getName(),
                     costs.calculateCost(recipes.getRecipe(d))));
