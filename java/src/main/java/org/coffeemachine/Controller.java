@@ -4,13 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class Controller {
 
-    private static int parseDrinkIdAndThrowExceptionIfInvalid(String input, Drinks drinks) throws IOException {
+    private static int parseDrinkIdAndThrowExceptionIfInvalid(String input,
+                                                              Function<Integer, Boolean> isValidDrinkInput) throws IOException {
         int drinkInput = Integer.parseInt(input);
-        if (drinkInput <= 0 || drinks.isValidDrinkInput(drinkInput)) {
+        if (drinkInput <= 0 || isValidDrinkInput.apply(drinkInput)) {
             throw new IOException(); // legal, but invalid input
         }
         return drinkInput - 1;
@@ -22,7 +24,7 @@ public class Controller {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
 
-        cliView.askForSelection(coffeeMachine.getInventory().summary(), CoffeeMachine.getDrinksMenu(coffeeMachine));
+        cliView.askForSelection(coffeeMachine.getInventory().summary(), coffeeMachine.getDrinksMenu());
         while (true) {
             try {
                 input = reader.readLine().toLowerCase();
@@ -36,7 +38,8 @@ public class Controller {
                 if (input.equals("r")) {
                     coffeeMachine.getInventory().restock();
                 } else {
-                    int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, coffeeMachine.getDrinks());
+                    int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input,
+                            number -> coffeeMachine.isValidDrinkInput(number));
                     if (coffeeMachine.getDrinks().isMakeable(drinkId)) {
                         cliView.displayDispensingDrink(coffeeMachine.getDrinks().getName(drinkId));
                         coffeeMachine.makeDrink(drinkId);
@@ -44,7 +47,7 @@ public class Controller {
                         cliView.displayOutOfStock(coffeeMachine.getDrinks().getName(drinkId));
                     }
                 }
-                cliView.askForSelection(coffeeMachine.getInventory().summary(), CoffeeMachine.getDrinksMenu(coffeeMachine));
+                cliView.askForSelection(coffeeMachine.getInventory().summary(), coffeeMachine.getDrinksMenu());
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }

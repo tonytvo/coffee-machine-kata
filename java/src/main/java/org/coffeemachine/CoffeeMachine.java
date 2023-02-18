@@ -11,8 +11,12 @@ class CoffeeMachine {
         this.inventory = inventory;
     }
 
-    static String getDrinksMenu(CoffeeMachine coffeeMachine) {
-        return coffeeMachine.getDrinks().getDrinksMenu().toString();
+    String getDrinksMenu() {
+        return getDrinks().getDrinksMenu().toString();
+    }
+
+    boolean isValidDrinkInput(Integer number) {
+        return getDrinks().isValidDrinkInput(number);
     }
 
     void makeDrink(int drinkId) {
