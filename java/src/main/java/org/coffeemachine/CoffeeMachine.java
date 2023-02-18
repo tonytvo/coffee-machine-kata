@@ -32,7 +32,7 @@ public class CoffeeMachine {
                     new Ingredients(Model.ingredientList).restockIngredients();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, drinks);
-                    Model.makeDrink(drinks.getDrink(drinkId), cliView);
+                    Model.makeDrink(drinks.getDrink(drinkId), cliView, new Ingredients(Model.ingredientList));
                 }
                 drinks.updateMakeable(new Ingredients(Model.ingredientList));
                 cliView.askForSelection(drinks, new Ingredients(Model.ingredientList));

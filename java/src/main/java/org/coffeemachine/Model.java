@@ -14,10 +14,10 @@ public class Model {
         drinks.updateMakeable(new Ingredients(ingredientList));
     }
 
-    public static void makeDrink(Drink drink, CliView cliView) {
+    public static void makeDrink(Drink drink, CliView cliView, Ingredients ingredients) {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
-            drink.make(new Ingredients(ingredientList));
+            drink.make(ingredients);
         } else {
             cliView.displayOutOfStock(drink.getName());
         }
