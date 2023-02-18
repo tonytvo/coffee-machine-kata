@@ -40,12 +40,6 @@ public class Drinks {
         recipes.put(drink, recipeForDrink);
     }
 
-    public void updateCosts(Ingredients ingredients) {
-        for (Drink d : getDrinkList()) {
-            d.updateCost(ingredients);
-        }
-    }
-
     StringBuffer getDrinksMenu() {
         int count = 1;
         StringBuffer menu = new StringBuffer();
