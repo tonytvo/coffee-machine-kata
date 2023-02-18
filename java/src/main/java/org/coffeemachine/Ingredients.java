@@ -35,4 +35,14 @@ public class Ingredients {
     public List<Ingredient> getIngredientList() {
         return ingredientList;
     }
+
+    double calculateCost(Recipe recipe) {
+        double currCost = 0;
+        for (Ingredient i : getIngredientList()) {
+            if (recipe.containsRecipe(i)) {
+                currCost += i.getCost() * recipe.getQuantity(i);
+            }
+        }
+        return currCost;
+    }
 }
