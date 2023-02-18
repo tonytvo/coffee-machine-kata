@@ -24,20 +24,20 @@ public class Model {
         }
     }
 
-    public static void addIngredient(Ingredient ingredient) {
+    public static void addIngredient(Ingredient ingredient, List<Ingredient> ingredientList) {
         ingredientList.add(ingredient);
     }
 
     public static void addAllIngredients() {
-        addIngredient(new Ingredient("Coffee", 0.75));
-        addIngredient(new Ingredient("Decaf Coffee", 0.75));
-        addIngredient(new Ingredient("Sugar", 0.25));
-        addIngredient(new Ingredient("Cream", 0.25));
-        addIngredient(new Ingredient("Steamed Milk", 0.35));
-        addIngredient(new Ingredient("Foamed Milk", 0.35));
-        addIngredient(new Ingredient("Espresso", 1.10));
-        addIngredient(new Ingredient("Cocoa", 0.90));
-        addIngredient(new Ingredient("Whipped Cream", 1.00));
+        addIngredient(new Ingredient("Coffee", 0.75), ingredientList);
+        addIngredient(new Ingredient("Decaf Coffee", 0.75), ingredientList);
+        addIngredient(new Ingredient("Sugar", 0.25), ingredientList);
+        addIngredient(new Ingredient("Cream", 0.25), ingredientList);
+        addIngredient(new Ingredient("Steamed Milk", 0.35), ingredientList);
+        addIngredient(new Ingredient("Foamed Milk", 0.35), ingredientList);
+        addIngredient(new Ingredient("Espresso", 1.10), ingredientList);
+        addIngredient(new Ingredient("Cocoa", 0.90), ingredientList);
+        addIngredient(new Ingredient("Whipped Cream", 1.00), ingredientList);
 
         Collections.sort(ingredientList);
     }
