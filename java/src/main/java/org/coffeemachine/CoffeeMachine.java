@@ -2,7 +2,9 @@ package org.coffeemachine;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.function.Supplier;
 
 public class CoffeeMachine {
 
@@ -12,11 +14,11 @@ public class CoffeeMachine {
         Model.initModel(drinks, ingredients);
         CliView cliView = new CliView(() -> System.out);
         cliView.askForSelection(drinks, ingredients);
-        startIO(cliView, drinks, ingredients);
+        startIO(cliView, drinks, ingredients, () -> System.in);
     }
 
-    public static void startIO(CliView cliView, Drinks drinks, Ingredients ingredients) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    public static void startIO(CliView cliView, Drinks drinks, Ingredients ingredients, Supplier<InputStream> inputStreamSupplier) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
 
         while (true) {
