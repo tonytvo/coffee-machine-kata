@@ -2,13 +2,16 @@ package org.coffeemachine;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class Drinks {
     private final List<Drink> drinkList;
+    private final Recipes recipes;
 
     public Drinks() {
         this.drinkList = new ArrayList<>();
+        this.recipes = new Recipes();
     }
 
     void makeFor(Ingredients ingredients, int drinkId) {
@@ -32,7 +35,10 @@ public class Drinks {
     }
 
     public void addDrink(String name, String[] recipe) {
-        getDrinkList().add(new Drink(name, recipe));
+        Recipe recipeForDrink = Recipe.fromRecipeNames(recipe);
+        Drink drink = new Drink(name, recipeForDrink);
+        getDrinkList().add(drink);
+        recipes.put(drink, recipeForDrink);
     }
 
     public void updateCosts(Ingredients ingredients) {
@@ -67,5 +73,18 @@ public class Drinks {
 
     public void clear() {
         drinkList.clear();;
+    }
+
+    private static class Recipes {
+
+        private final HashMap<Drink, Recipe> drinkRecipes;
+
+        public Recipes() {
+            drinkRecipes = new HashMap<>();
+        }
+
+        public void put(Drink drink, Recipe recipe) {
+            drinkRecipes.put(drink, recipe);
+        }
     }
 }

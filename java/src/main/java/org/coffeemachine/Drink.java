@@ -6,9 +6,9 @@ public class Drink implements Comparable<Drink> {
     private double totalCost = 0;
     private boolean makeable = false;
 
-    public Drink(String name, String[] recipe) {
+    public Drink(String name, Recipe recipe1) {
         this.name = name;
-        this.recipe = Recipe.fromRecipeNames(recipe);
+        this.recipe = recipe1;
     }
 
     void make(Ingredients ingredients) {
