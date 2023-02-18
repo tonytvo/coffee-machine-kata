@@ -13,7 +13,7 @@ public class Recipe {
     static Recipe fromRecipeNames(String[] recipe) {
         Map<Ingredient, Integer> recipeQuantityByName = new HashMap<>();
         for (String s : recipe) {
-            Ingredient ingredient = new Ingredient(s, 0);
+            Ingredient ingredient = new Ingredient(s);
             if (recipeQuantityByName.containsKey(ingredient)) {
                 recipeQuantityByName.put(ingredient, recipeQuantityByName.get(ingredient) + 1);// increment if multiple units
             } else {

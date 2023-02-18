@@ -12,15 +12,15 @@ public class Model {
     }
 
     public static void addAllIngredients(Ingredients ingredients, Costs costs) {
-        ingredients.addIngredient(new Ingredient("Coffee", 0.75), 0.75);
-        ingredients.addIngredient(new Ingredient("Decaf Coffee", 0.75), 0.75);
-        ingredients.addIngredient(new Ingredient("Sugar", 0.25), 0.25);
-        ingredients.addIngredient(new Ingredient("Cream", 0.25), 0.25);
-        ingredients.addIngredient(new Ingredient("Steamed Milk", 0.35), 0.35);
-        ingredients.addIngredient(new Ingredient("Foamed Milk", 0.35), 0.35);
-        ingredients.addIngredient(new Ingredient("Espresso", 1.10), 1.10);
-        ingredients.addIngredient(new Ingredient("Cocoa", 0.90), 0.90);
-        ingredients.addIngredient(new Ingredient("Whipped Cream", 1.00), 1.00);
+        ingredients.addIngredient(new Ingredient("Coffee"), 0.75);
+        ingredients.addIngredient(new Ingredient("Decaf Coffee"), 0.75);
+        ingredients.addIngredient(new Ingredient("Sugar"), 0.25);
+        ingredients.addIngredient(new Ingredient("Cream"), 0.25);
+        ingredients.addIngredient(new Ingredient("Steamed Milk"), 0.35);
+        ingredients.addIngredient(new Ingredient("Foamed Milk"), 0.35);
+        ingredients.addIngredient(new Ingredient("Espresso"), 1.10);
+        ingredients.addIngredient(new Ingredient("Cocoa"), 0.90);
+        ingredients.addIngredient(new Ingredient("Whipped Cream"), 1.00);
 
         ingredients.sort();
     }

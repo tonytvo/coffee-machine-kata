@@ -4,11 +4,9 @@ import java.util.Objects;
 
 public class Ingredient implements Comparable<Ingredient> {
     private final String name;
-    private final double cost;
 
-    public Ingredient(String name, double cost) {
+    public Ingredient(String name) {
         this.name = name;
-        this.cost = cost;
     }
 
     public int compareTo(Ingredient ingredient) {
@@ -17,10 +15,6 @@ public class Ingredient implements Comparable<Ingredient> {
 
     public String getName() {
         return name;
-    }
-
-    public double getCost() {
-        return cost;
     }
 
     @Override
