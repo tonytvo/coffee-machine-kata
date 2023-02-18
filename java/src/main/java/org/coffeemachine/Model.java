@@ -1,9 +1,6 @@
 package org.coffeemachine;
 
 public class Model {
-    static final Drinks drinks = new Drinks();
-    static final Ingredients ingredients = new Ingredients();
-
     static void initModel(Drinks drinks, Ingredients ingredients, Costs costs) {
         addAllIngredients(ingredients, costs);
         addAllDrinks(drinks);
