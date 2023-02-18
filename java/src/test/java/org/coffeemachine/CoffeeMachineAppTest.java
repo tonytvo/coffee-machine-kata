@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 
-public class CoffeeMachineTest {
+public class CoffeeMachineAppTest {
 
     private InputStream in;
     private PrintStream out;
@@ -29,7 +29,7 @@ public class CoffeeMachineTest {
 
     @Test
     public void
-    givenQuitChoice_shouldQuit() {
+    goldenMaster() {
         String [] inputs = new String [] { "q\n",
                 "1\nq\n",
                 "3\nr\nq\n",
@@ -37,7 +37,7 @@ public class CoffeeMachineTest {
                 "999\nq\n",
                 "3\n3\n3\n3\n3\nq\n"
         };
-        Approvals.verifyAll(inputs, CoffeeMachineTest::runCoffeeMachine);
+        Approvals.verifyAll(inputs, CoffeeMachineAppTest::runCoffeeMachine);
     }
 
     private static String runCoffeeMachine(String input) {
@@ -46,7 +46,7 @@ public class CoffeeMachineTest {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        CoffeeMachine.main(new String []{});
+        CoffeeMachineApp.main(new String []{});
 
         return output.toString();
     }
