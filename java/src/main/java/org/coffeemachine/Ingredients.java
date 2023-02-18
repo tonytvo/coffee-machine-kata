@@ -34,6 +34,10 @@ public class Ingredients {
     }
 
     StringBuffer getInventory() {
+        return getInventoryTemp();
+    }
+
+    private StringBuffer getInventoryTemp() {
         StringBuffer inventory = new StringBuffer();
         for (Ingredient i : getIngredientList()) {
             String inventoryForIngreident = i.getName() + "," + i.getStock();
