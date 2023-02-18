@@ -1,13 +1,14 @@
 package org.coffeemachine;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Ingredients {
     private final List<Ingredient> ingredientList;
 
-    public Ingredients(List<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
+    public Ingredients() {
+        this.ingredientList = new ArrayList<>();
     }
 
     void updateIngredientsStockPerRecipe(Recipe recipe) {

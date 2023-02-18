@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Model {
     static final Drinks drinks = new Drinks();
-    static final Ingredients ingredients = new Ingredients(new ArrayList<>());
+    static final Ingredients ingredients = new Ingredients();
 
     static void initModel(Drinks drinks, Ingredients ingredients) {
         addAllIngredients(ingredients);
