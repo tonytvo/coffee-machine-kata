@@ -9,6 +9,10 @@ public class Ingredients {
         this.ingredientList = ingredientList;
     }
 
+    public void addIngredient(Ingredient ingredient) {
+        getIngredientList().add(ingredient);
+    }
+
     StringBuffer getInventory() {
         StringBuffer inventory = new StringBuffer();
         for (Ingredient i : getIngredientList()) {

@@ -24,20 +24,16 @@ public class Model {
         }
     }
 
-    public static void addIngredient(Ingredient ingredient, Ingredients ingredients) {
-        ingredients.getIngredientList().add(ingredient);
-    }
-
     public static void addAllIngredients() {
-        addIngredient(new Ingredient("Coffee", 0.75), new Ingredients(ingredientList));
-        addIngredient(new Ingredient("Decaf Coffee", 0.75), new Ingredients(ingredientList));
-        addIngredient(new Ingredient("Sugar", 0.25), new Ingredients(ingredientList));
-        addIngredient(new Ingredient("Cream", 0.25), new Ingredients(ingredientList));
-        addIngredient(new Ingredient("Steamed Milk", 0.35), new Ingredients(ingredientList));
-        addIngredient(new Ingredient("Foamed Milk", 0.35), new Ingredients(ingredientList));
-        addIngredient(new Ingredient("Espresso", 1.10), new Ingredients(ingredientList));
-        addIngredient(new Ingredient("Cocoa", 0.90), new Ingredients(ingredientList));
-        addIngredient(new Ingredient("Whipped Cream", 1.00), new Ingredients(ingredientList));
+        new Ingredients(ingredientList).addIngredient(new Ingredient("Coffee", 0.75));
+        new Ingredients(ingredientList).addIngredient(new Ingredient("Decaf Coffee", 0.75));
+        new Ingredients(ingredientList).addIngredient(new Ingredient("Sugar", 0.25));
+        new Ingredients(ingredientList).addIngredient(new Ingredient("Cream", 0.25));
+        new Ingredients(ingredientList).addIngredient(new Ingredient("Steamed Milk", 0.35));
+        new Ingredients(ingredientList).addIngredient(new Ingredient("Foamed Milk", 0.35));
+        new Ingredients(ingredientList).addIngredient(new Ingredient("Espresso", 1.10));
+        new Ingredients(ingredientList).addIngredient(new Ingredient("Cocoa", 0.90));
+        new Ingredients(ingredientList).addIngredient(new Ingredient("Whipped Cream", 1.00));
 
         Collections.sort(ingredientList);
     }
