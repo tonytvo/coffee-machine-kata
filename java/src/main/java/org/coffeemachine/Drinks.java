@@ -8,11 +8,11 @@ public class Drinks {
     private final Costs costs;
     private final Inventory inventory;
 
-    public Drinks(Costs costs, Inventory inventory) {
+    public Drinks(Costs costs, Inventory inventory, Recipes recipes) {
         this.costs = costs;
         this.inventory = inventory;
         this.drinkList = new ArrayList<>();
-        this.recipes = new Recipes();
+        this.recipes = recipes;
     }
 
     void makeFor(int drinkId) {
