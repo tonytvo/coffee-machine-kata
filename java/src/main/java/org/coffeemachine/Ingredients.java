@@ -33,17 +33,17 @@ public class Ingredients {
         inventory.restock(ingredient);
     }
 
-    StringBuffer getInventory() {
+    String getInventory() {
         return getInventoryTemp();
     }
 
-    private StringBuffer getInventoryTemp() {
+    private String getInventoryTemp() {
         StringBuffer inventory = new StringBuffer();
         for (Ingredient i : getIngredientList()) {
             String inventoryForIngreident = i.getName() + "," + i.getStock();
             inventory.append(inventoryForIngreident).append("\n");
         }
-        return inventory;
+        return inventory.toString();
     }
 
     public void restockIngredients() {

@@ -13,7 +13,7 @@ public class CliView {
 
     public void askForSelection(Drinks drinks, Ingredients ingredients) {
         outputStreamSupplier.get().println("Inventory:");
-        StringBuffer inventory = ingredients.getInventory();
+        String inventory = ingredients.getInventory();
         outputStreamSupplier.get().print(inventory);
 
         outputStreamSupplier.get().println("\nMenu:");
