@@ -7,10 +7,10 @@ public class Ingredients {
     private final Inventory inventory;
     private final Costs costs;
 
-    public Ingredients() {
+    public Ingredients(Costs costs1) {
         this.ingredientList = new ArrayList<>();
         this.inventory = new Inventory();
-        this.costs = new Costs();
+        this.costs = costs1;
     }
 
     void updateIngredientsStockPerRecipe(Recipe recipe) {

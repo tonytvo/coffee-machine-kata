@@ -1,9 +1,6 @@
 package org.coffeemachine;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Drinks {
     private final List<Drink> drinkList;
@@ -77,7 +74,7 @@ public class Drinks {
 
     private static class Recipes {
 
-        private final HashMap<Drink, Recipe> drinkRecipes;
+        private final Map<Drink, Recipe> drinkRecipes;
 
         public Recipes() {
             drinkRecipes = new HashMap<>();
