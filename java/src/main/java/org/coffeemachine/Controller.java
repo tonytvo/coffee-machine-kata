@@ -39,10 +39,10 @@ public class Controller {
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, drinks);
                     if (drinks.isMakeable(drinkId)) {
-                        cliView.displayDispensingDrink(getName(drinks, drinkId));
-                        drinks.getDrink(drinkId).make(ingredients);
+                        cliView.displayDispensingDrink(drinks.getName(drinkId));
+                        makeFor(drinks, ingredients, drinkId);
                     } else {
-                        cliView.displayOutOfStock(getName(drinks, drinkId));
+                        cliView.displayOutOfStock(drinks.getName(drinkId));
                     }
                 }
                 drinks.updateMakeable(ingredients);
@@ -53,8 +53,8 @@ public class Controller {
         }
     }
 
-    private static String getName(Drinks drinks, int drinkId) {
-        return drinks.getDrink(drinkId).getName();
+    private static void makeFor(Drinks drinks, Ingredients ingredients, int drinkId) {
+        drinks.getDrink(drinkId).make(ingredients);
     }
 
 }

@@ -11,6 +11,10 @@ public class Drinks {
         this.drinkList = new ArrayList<>();
     }
 
+    String getName(int drinkId) {
+        return getDrink(drinkId).getName();
+    }
+
     boolean isMakeable(int drinkId) {
         return getDrink(drinkId).getMakeable();
     }
