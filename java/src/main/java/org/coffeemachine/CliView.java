@@ -5,6 +5,12 @@ import java.util.function.Supplier;
 
 public class CliView {
 
+    private static Supplier<PrintStream> outputStreamSupplier;
+
+    public CliView() {
+        outputStreamSupplier = () -> System.out;
+    }
+
     public void askForSelection(Drinks drinks, Ingredients ingredients) {
         getOutputStream().println("Inventory:");
         StringBuffer inventory = ingredients.getInventory();
@@ -17,7 +23,6 @@ public class CliView {
     }
 
     private static PrintStream getOutputStream() {
-        Supplier<PrintStream> outputStreamSupplier = () -> System.out;
         return outputStreamSupplier.get();
     }
 
