@@ -11,6 +11,10 @@ public class Drinks {
         this.drinkList = new ArrayList<>();
     }
 
+    boolean isMakeable(int drinkId) {
+        return getDrink(drinkId).getMakeable();
+    }
+
     boolean isValidDrinkInput(int drinkInput) {
         return drinkInput > getDrinkList().size();
     }

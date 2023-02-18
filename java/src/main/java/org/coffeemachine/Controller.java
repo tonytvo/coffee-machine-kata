@@ -38,7 +38,7 @@ public class Controller {
                     ingredients.restockIngredients();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, drinks);
-                    if (isMakeable(drinks, drinkId)) {
+                    if (drinks.isMakeable(drinkId)) {
                         cliView.displayDispensingDrink(drinks.getDrink(drinkId).getName());
                         drinks.getDrink(drinkId).make(ingredients);
                     } else {
@@ -53,7 +53,4 @@ public class Controller {
         }
     }
 
-    private static boolean isMakeable(Drinks drinks, int drinkId) {
-        return drinks.getDrink(drinkId).getMakeable();
-    }
 }
