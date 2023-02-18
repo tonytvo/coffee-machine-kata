@@ -35,10 +35,6 @@ public class Ingredients {
     }
 
     String getInventory() {
-        return getInventoryTemp();
-    }
-
-    private String getInventoryTemp() {
         return inventory.summary();
     }
 
