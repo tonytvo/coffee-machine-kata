@@ -6,7 +6,7 @@ public class CliView {
 
     public void askForSelection(List<Ingredient> ingredientList, Drinks drinks) {
         System.out.println("Inventory:");
-        StringBuffer inventory = getInventory(ingredientList);
+        StringBuffer inventory = getInventory(new Ingredients(ingredientList));
         System.out.print(inventory);
 
         System.out.println("\nMenu:");
@@ -15,9 +15,9 @@ public class CliView {
         System.out.print("\nYour selection: ");
     }
 
-    private static StringBuffer getInventory(List<Ingredient> ingredientList) {
+    private static StringBuffer getInventory(Ingredients ingredients) {
         StringBuffer inventory = new StringBuffer();
-        for (Ingredient i : ingredientList) {
+        for (Ingredient i : ingredients.getIngredientList()) {
             String inventoryForIngreident = i.getName() + "," + i.getStock();
             inventory.append(inventoryForIngreident).append("\n");
         }
