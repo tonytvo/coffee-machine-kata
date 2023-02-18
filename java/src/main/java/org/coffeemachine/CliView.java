@@ -1,6 +1,7 @@
 package org.coffeemachine;
 
 import java.io.PrintStream;
+import java.util.function.Supplier;
 
 public class CliView {
 
@@ -16,7 +17,8 @@ public class CliView {
     }
 
     private static PrintStream getOutputStream() {
-        return System.out;
+        Supplier<PrintStream> outputStreamSupplier = () -> System.out;
+        return outputStreamSupplier.get();
     }
 
     void displayOutOfStock(String drinkName) {
