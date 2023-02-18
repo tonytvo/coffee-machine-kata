@@ -5,10 +5,12 @@ import java.util.*;
 public class Ingredients {
     private final List<Ingredient> ingredientList;
     private final Inventory inventory;
+    private final Costs costs;
 
     public Ingredients() {
         this.ingredientList = new ArrayList<>();
         this.inventory = new Inventory();
+        this.costs = new Costs();
     }
 
     void updateIngredientsStockPerRecipe(Recipe recipe) {
@@ -54,4 +56,6 @@ public class Ingredients {
         ingredientList.clear();
     }
 
+    private static class Costs {
+    }
 }
