@@ -1,9 +1,9 @@
 package org.coffeemachine;
 
 public class Ingredient implements Comparable<Ingredient> {
-    private String name = "";
-    private double cost = 0.00;
-    private int stock = 0;
+    private final String name;
+    private final double cost;
+    private int stock;
 
     public Ingredient(String name, double cost) {
         this.name = name;

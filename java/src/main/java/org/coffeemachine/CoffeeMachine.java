@@ -1,12 +1,8 @@
 package org.coffeemachine;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CoffeeMachine {
 
