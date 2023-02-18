@@ -4,7 +4,6 @@ public class Model {
     static void initModel(Drinks drinks, Ingredients ingredients, Costs costs) {
         addAllIngredients(ingredients, costs);
         addAllDrinks(drinks);
-        drinks.updateMakeable(ingredients);
     }
 
     public static void addAllIngredients(Ingredients ingredients, Costs costs) {

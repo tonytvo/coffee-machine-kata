@@ -59,12 +59,6 @@ public class Drinks {
         return getDrinkList().get(drinkId);
     }
 
-    public void updateMakeable(Ingredients ingredients) {
-        for (Drink d : getDrinkList()) {
-            d.updateMakable(ingredients);
-        }
-    }
-
     private List<Drink> getDrinkList() {
         return drinkList;
     }

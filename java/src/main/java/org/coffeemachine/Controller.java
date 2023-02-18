@@ -45,7 +45,6 @@ public class Controller {
                         cliView.displayOutOfStock(drinks.getName(drinkId));
                     }
                 }
-                drinks.updateMakeable(ingredients);
                 cliView.askForSelection(drinks, ingredients);
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);

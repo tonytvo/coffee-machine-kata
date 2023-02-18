@@ -17,11 +17,6 @@ public class Drink implements Comparable<Drink> {
         ingredients.updateIngredientsStockPerRecipe(recipe);
     }
 
-    void updateMakable(Ingredients ingredients) {
-        Recipe recipe = getRecipe();
-         setMakeable(ingredients.isMakeable(recipe));
-    }
-
     private Recipe getRecipe() {
         return recipe;
     }
@@ -36,10 +31,6 @@ public class Drink implements Comparable<Drink> {
 
     public String getName() {
         return name;
-    }
-
-    public boolean getMakeable() {
-        return makeable;
     }
 
     @Override
