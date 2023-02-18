@@ -7,7 +7,6 @@ public class CoffeeMachine {
         Inventory inventory = new Inventory();
         Recipes recipes = new Recipes();
         Drinks drinks = new Drinks(costs, inventory, recipes);
-        Ingredients ingredients = new Ingredients(costs, inventory);
         Model.initModel(drinks, costs, inventory);
         CliView cliView = new CliView(() -> System.out);
         new Controller().start(cliView,
