@@ -13,10 +13,6 @@ public class Ingredients {
         this.costs = costs1;
     }
 
-    void sort() {
-        Collections.sort(getIngredientList());
-    }
-
     public void addIngredient(Ingredient ingredient, double cost) {
         getIngredientList().add(ingredient);
         inventory.restock(ingredient);
