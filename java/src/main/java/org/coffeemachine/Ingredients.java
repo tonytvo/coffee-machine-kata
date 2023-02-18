@@ -6,9 +6,11 @@ import java.util.List;
 
 public class Ingredients {
     private final List<Ingredient> ingredientList;
+    private final Inventory inventory;
 
     public Ingredients() {
         this.ingredientList = new ArrayList<>();
+        this.inventory = new Inventory();
     }
 
     void updateIngredientsStockPerRecipe(Recipe recipe) {
@@ -58,5 +60,8 @@ public class Ingredients {
             }
         }
         return currCost;
+    }
+
+    private class Inventory {
     }
 }
