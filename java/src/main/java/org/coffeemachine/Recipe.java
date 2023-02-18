@@ -4,37 +4,38 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Recipe {
-    private final Map<String, Integer> quantityByRecipeName;
+    private final Map<Ingredient, Integer> quantityByRecipeName;
 
-    public Recipe(Map<String, Integer> currRecipe) {
+    public Recipe(Map<Ingredient, Integer> currRecipe) {
         this.quantityByRecipeName = currRecipe;
     }
 
     static Recipe fromRecipeNames(String[] recipe) {
-        Map<String, Integer> recipeQuantityByName = new HashMap<>();
+        Map<Ingredient, Integer> recipeQuantityByName = new HashMap<>();
         for (String s : recipe) {
-            if (recipeQuantityByName.containsKey(s)) {
-                recipeQuantityByName.put(s, recipeQuantityByName.get(s) + 1);// increment if multiple units
+            Ingredient ingredient = new Ingredient(s, 0);
+            if (recipeQuantityByName.containsKey(ingredient)) {
+                recipeQuantityByName.put(ingredient, recipeQuantityByName.get(ingredient) + 1);// increment if multiple units
             } else {
-                recipeQuantityByName.put(s, 1);// insert first occurrence of ingredient
+                recipeQuantityByName.put(ingredient, 1);// insert first occurrence of ingredient
             }
         }
         return new Recipe(recipeQuantityByName);
     }
 
     Integer getQuantity(Ingredient i) {
-        return getQuantityByRecipeName().get(i.getName());
+        return getQuantityByIngredient().get(i);
     }
 
     boolean contains(Ingredient i) {
-        return getQuantityByRecipeName().containsKey(i.getName());
+        return getQuantityByIngredient().containsKey(i);
     }
 
     boolean isMakeable(Ingredient i) {
-        return !contains(i) || i.getStock() >= getQuantityByRecipeName().get(i.getName());
+        return !contains(i) || i.getStock() >= getQuantityByIngredient().get(i);
     }
 
-    private Map<String, Integer> getQuantityByRecipeName() {
+    private Map<Ingredient, Integer> getQuantityByIngredient() {
         return quantityByRecipeName;
     }
 }
