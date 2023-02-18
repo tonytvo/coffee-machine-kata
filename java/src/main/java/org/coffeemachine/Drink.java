@@ -28,11 +28,15 @@ public class Drink implements Comparable<Drink> {
 
      void updateMakable(List<Ingredient> ingredientList1) {
         Recipe recipe = getRecipe();
-         boolean isMakeable = ingredientList1.stream().allMatch(recipe::isMakeable);
+         boolean isMakeable = isMakeable(ingredientList1, recipe);
          setMakeable(isMakeable);
     }
 
-     private double calculateCost(List<Ingredient> ingredientList1) {
+    private static boolean isMakeable(List<Ingredient> ingredientList1, Recipe recipe) {
+        return ingredientList1.stream().allMatch(recipe::isMakeable);
+    }
+
+    private double calculateCost(List<Ingredient> ingredientList1) {
         double currCost = 0;
         Recipe recipe = getRecipe();
         for (Ingredient i : ingredientList1) {
