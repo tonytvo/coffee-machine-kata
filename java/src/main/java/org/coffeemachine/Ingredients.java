@@ -25,9 +25,10 @@ public class Ingredients {
         return inventory.canMake(recipe);
     }
 
-    public void addIngredient(Ingredient ingredient) {
+    public void addIngredient(Ingredient ingredient, double cost) {
         getIngredientList().add(ingredient);
         inventory.restock(ingredient);
+        costs.set(ingredient, cost);
     }
 
     String getInventory() {
@@ -57,5 +58,15 @@ public class Ingredients {
     }
 
     private static class Costs {
+
+        private final Map<Ingredient, Double> ingredientCosts;
+
+        public Costs() {
+            ingredientCosts = new HashMap<>();
+        }
+
+        public void set(Ingredient ingredient, double cost) {
+            ingredientCosts.put(ingredient, cost);
+        }
     }
 }
