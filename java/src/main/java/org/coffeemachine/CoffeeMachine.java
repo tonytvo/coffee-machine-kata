@@ -8,10 +8,11 @@ public class CoffeeMachine {
 
     public static void main(String[] args) {
         Drinks drinks = Model.drinks;
-        Model.initModel(drinks, new Ingredients(Model.ingredientList));
+        Ingredients ingredients = new Ingredients(Model.ingredientList);
+        Model.initModel(drinks, ingredients);
         CliView cliView = new CliView();
-        cliView.askForSelection(drinks, new Ingredients(Model.ingredientList));
-        startIO(cliView, drinks, new Ingredients(Model.ingredientList));
+        cliView.askForSelection(drinks, ingredients);
+        startIO(cliView, drinks, ingredients);
     }
 
     public static void startIO(CliView cliView, Drinks drinks, Ingredients ingredients) {
