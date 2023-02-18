@@ -11,8 +11,7 @@ public class Drink implements Comparable<Drink> {
         this.recipe = recipe1;
     }
 
-    void make(Ingredients ingredients) {
-        Recipe recipe = getRecipe();
+    void make(Ingredients ingredients, Recipe recipe) {
         ingredients.updateIngredientsStockPerRecipe(recipe);
     }
 
