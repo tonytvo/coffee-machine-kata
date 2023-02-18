@@ -15,7 +15,7 @@ public class Drinks {
         this.recipes = new Recipes();
     }
 
-    void makeFor(Ingredients ingredients, int drinkId) {
+    void makeFor(int drinkId) {
         Recipe recipe = recipes.getRecipe(getDrink(drinkId));
         inventory.reduceFrom(recipe);
     }

@@ -40,7 +40,7 @@ public class Controller {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, drinks);
                     if (drinks.isMakeable(drinkId)) {
                         cliView.displayDispensingDrink(drinks.getName(drinkId));
-                        drinks.makeFor(ingredients, drinkId);
+                        drinks.makeFor(drinkId);
                     } else {
                         cliView.displayOutOfStock(drinks.getName(drinkId));
                     }
