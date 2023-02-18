@@ -11,10 +11,10 @@ public class CoffeeMachine {
         Model.initModel(drinks);
         CliView cliView = new CliView();
         cliView.askForSelection(drinks, new Ingredients(Model.ingredientList));
-        startIO(cliView, drinks);
+        startIO(cliView, drinks, new Ingredients(Model.ingredientList));
     }
 
-    public static void startIO(CliView cliView, Drinks drinks) {
+    public static void startIO(CliView cliView, Drinks drinks, Ingredients ingredients) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input = "";
 
@@ -29,13 +29,13 @@ public class CoffeeMachine {
                     break;
                 }
                 if (input.equals("r")) {
-                    new Ingredients(Model.ingredientList).restockIngredients();
+                    ingredients.restockIngredients();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input, drinks);
-                    Model.makeDrink(drinks.getDrink(drinkId), cliView, new Ingredients(Model.ingredientList));
+                    Model.makeDrink(drinks.getDrink(drinkId), cliView, ingredients);
                 }
-                drinks.updateMakeable(new Ingredients(Model.ingredientList));
-                cliView.askForSelection(drinks, new Ingredients(Model.ingredientList));
+                drinks.updateMakeable(ingredients);
+                cliView.askForSelection(drinks, ingredients);
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }
