@@ -24,7 +24,7 @@ public class Controller {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
 
-        cliView.askForSelection(coffeeMachine.getInventory().summary(), coffeeMachine.getDrinksMenu());
+        cliView.askForSelection(coffeeMachine.getIventorySummary(), coffeeMachine.getDrinksMenu());
         while (true) {
             try {
                 input = reader.readLine().toLowerCase();
@@ -36,7 +36,7 @@ public class Controller {
                     break;
                 }
                 if (input.equals("r")) {
-                    coffeeMachine.getInventory().restock();
+                    coffeeMachine.restock();
                 } else {
                     int drinkId = parseDrinkIdAndThrowExceptionIfInvalid(input,
                             number -> coffeeMachine.isValidDrinkInput(number));
@@ -47,7 +47,7 @@ public class Controller {
                         cliView.displayOutOfStock(coffeeMachine.getDrinks().getName(drinkId));
                     }
                 }
-                cliView.askForSelection(coffeeMachine.getInventory().summary(), coffeeMachine.getDrinksMenu());
+                cliView.askForSelection(coffeeMachine.getIventorySummary(), coffeeMachine.getDrinksMenu());
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }

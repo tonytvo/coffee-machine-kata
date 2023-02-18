@@ -11,6 +11,14 @@ class CoffeeMachine {
         this.inventory = inventory;
     }
 
+    String getIventorySummary() {
+        return inventory.summary();
+    }
+
+    void restock() {
+        inventory.restock();
+    }
+
     String getDrinksMenu() {
         return getDrinks().getDrinksMenu().toString();
     }
@@ -28,7 +36,4 @@ class CoffeeMachine {
         return drinks;
     }
 
-    public Inventory getInventory() {
-        return inventory;
-    }
 }
