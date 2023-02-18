@@ -1,6 +1,7 @@
 package org.coffeemachine;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Ingredients {
     private final List<Ingredient> ingredientList;
@@ -38,12 +39,7 @@ public class Ingredients {
     }
 
     private String getInventoryTemp() {
-        StringBuffer inventory = new StringBuffer();
-        for (Ingredient i : getIngredientList()) {
-            String inventoryForIngreident = i.getName() + "," + i.getStock();
-            inventory.append(inventoryForIngreident).append("\n");
-        }
-        return inventory.toString();
+        return inventory.summary();
     }
 
     public void restockIngredients() {
@@ -97,6 +93,13 @@ public class Ingredients {
         public boolean canMake(Recipe recipe) {
             return inventoryByIngredient.keySet().stream()
                     .allMatch(ingredient -> inventoryByIngredient.get(ingredient) >= recipe.quantityFor(ingredient));
+        }
+
+        private String summary() {
+            return inventoryByIngredient.keySet().stream()
+                    .sorted()
+                    .map(ingredient -> ingredient.getName() + "," + inventoryByIngredient.get(ingredient))
+                    .collect(Collectors.joining("\n")) + "\n";
         }
     }
 }
