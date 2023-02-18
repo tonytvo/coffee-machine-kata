@@ -7,11 +7,11 @@ public class Model {
     static final Drinks drinks = new Drinks();
     static final List<Ingredient> ingredientList = new ArrayList<>();
 
-    static void initModel(Drinks drinks) {
-        addAllIngredients(new Ingredients(ingredientList));
+    static void initModel(Drinks drinks, Ingredients ingredients) {
+        addAllIngredients(ingredients);
         addAllDrinks(drinks);
-        drinks.updateCosts(new Ingredients(ingredientList));
-        drinks.updateMakeable(new Ingredients(ingredientList));
+        drinks.updateCosts(ingredients);
+        drinks.updateMakeable(ingredients);
     }
 
     public static void makeDrink(Drink drink, CliView cliView, Ingredients ingredients) {
