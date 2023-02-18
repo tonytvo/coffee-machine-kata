@@ -1,5 +1,6 @@
 package org.coffeemachine;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Ingredients {
@@ -7,6 +8,10 @@ public class Ingredients {
 
     public Ingredients(List<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
+    }
+
+    void sort() {
+        Collections.sort(getIngredientList());
     }
 
     boolean isMakeable(Recipe recipe) {
