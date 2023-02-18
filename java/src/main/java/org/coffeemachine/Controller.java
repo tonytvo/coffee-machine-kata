@@ -25,7 +25,7 @@ public class Controller {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
 
-        cliView.askForSelection(drinks, ingredients);
+        cliView.askForSelection(drinks, ingredients.getInventory());
         while (true) {
             try {
                 input = reader.readLine().toLowerCase();
@@ -47,7 +47,7 @@ public class Controller {
                         cliView.displayOutOfStock(drinks.getName(drinkId));
                     }
                 }
-                cliView.askForSelection(drinks, ingredients);
+                cliView.askForSelection(drinks, ingredients.getInventory());
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }
