@@ -83,7 +83,7 @@ public class Ingredients {
                     .allMatch(ingredient -> inventoryByIngredient.get(ingredient) >= recipe.quantityFor(ingredient));
         }
 
-        private String summary() {
+        public String summary() {
             return inventoryByIngredient.keySet().stream()
                     .sorted()
                     .map(ingredient -> ingredient.getName() + "," + inventoryByIngredient.get(ingredient))
