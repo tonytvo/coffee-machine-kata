@@ -17,7 +17,7 @@ public class Model {
     public static void makeDrink(Drink drink, CliView cliView) {
         if (drink.getMakeable()) {
             cliView.displayDispensingDrink(drink.getName());
-            drink.make(ingredientList);
+            drink.make(new Ingredients(ingredientList));
         } else {
             cliView.displayOutOfStock(drink.getName());
         }
