@@ -25,7 +25,7 @@ public class Ingredients {
     }
 
     boolean isMakeable(Recipe recipe) {
-        return getIngredientList().stream().allMatch(recipe::isMakeable);
+        return inventory.canMake(recipe);
     }
 
     public void addIngredient(Ingredient ingredient) {
@@ -84,6 +84,11 @@ public class Ingredients {
                     .filter(recipe::contains)
                     .forEach(ingredient -> inventoryByIngredient.put(ingredient, inventoryByIngredient.get(ingredient) - recipe.quantityFor(ingredient)));
 
+        }
+
+        public boolean canMake(Recipe recipe) {
+            return inventoryByIngredient.keySet().stream()
+                    .allMatch(ingredient -> inventoryByIngredient.get(ingredient) >= recipe.quantityFor(ingredient));
         }
     }
 }
