@@ -14,7 +14,6 @@ public class CoffeeMachine {
                 drinks,
                 recipes,
                 inventory,
-                ingredients,
                 () -> System.in);
     }
 

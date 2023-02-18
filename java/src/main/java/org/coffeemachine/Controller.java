@@ -20,7 +20,6 @@ public class Controller {
                       Drinks drinks,
                       Recipes recipes,
                       Inventory inventory,
-                      Ingredients ingredients,
                       Supplier<InputStream> inputStreamSupplier) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamSupplier.get()));
         String input = "";
