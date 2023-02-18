@@ -1,12 +1,12 @@
 package org.coffeemachine;
 
 public class Model {
-    static void initModel(Drinks drinks, Ingredients ingredients, Costs costs, Inventory inventory) {
-        addAllIngredients(ingredients, costs, inventory);
+    static void initModel(Drinks drinks, Costs costs, Inventory inventory) {
+        addAllIngredients(costs, inventory);
         addAllDrinks(drinks);
     }
 
-    public static void addAllIngredients(Ingredients ingredients, Costs costs, Inventory inventory) {
+    public static void addAllIngredients(Costs costs, Inventory inventory) {
         addIngredient("Coffee", inventory, costs, 0.75);
 
         addIngredient("Decaf Coffee", inventory, costs, 0.75);
