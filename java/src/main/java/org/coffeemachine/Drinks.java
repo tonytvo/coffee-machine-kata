@@ -23,9 +23,9 @@ public class Drinks {
         getDrinkList().add(new Drink(name, recipe));
     }
 
-    public void updateCosts(List<Ingredient> ingredientList) {
+    public void updateCosts(Ingredients ingredients) {
         for (Drink d : getDrinkList()) {
-            d.updateCost(new Ingredients(ingredientList));
+            d.updateCost(ingredients);
         }
     }
 

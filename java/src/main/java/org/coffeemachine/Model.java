@@ -11,7 +11,7 @@ public class Model {
     static void initModel(Drinks drinks) {
         addAllIngredients();
         addAllDrinks(drinks);
-        drinks.updateCosts(ingredientList);
+        drinks.updateCosts(new Ingredients(ingredientList));
         drinks.updateMakeable(new Ingredients(ingredientList));
     }
 
