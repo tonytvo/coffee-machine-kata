@@ -23,7 +23,7 @@ public class Drink implements Comparable<Drink> {
     }
 
     void updateCost(List<Ingredient> ingredientList) {
-        setCost(calculateCost(ingredientList));
+        setCost(calculateCost(ingredientList, getRecipe()));
     }
 
      void updateMakable(Ingredients ingredients) {
@@ -31,9 +31,8 @@ public class Drink implements Comparable<Drink> {
          setMakeable(ingredients.isMakeable(recipe));
     }
 
-    private double calculateCost(List<Ingredient> ingredientList1) {
+    private double calculateCost(List<Ingredient> ingredientList1, Recipe recipe) {
         double currCost = 0;
-        Recipe recipe = getRecipe();
         for (Ingredient i : ingredientList1) {
             if (recipe.containsRecipe(i)) {
                 currCost += i.getCost() * recipe.getQuantity(i);
