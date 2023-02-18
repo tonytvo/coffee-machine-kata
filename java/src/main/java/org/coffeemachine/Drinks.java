@@ -45,7 +45,7 @@ public class Drinks {
 
     public void updateMakeable(Ingredients ingredients) {
         for (Drink d : getDrinkList()) {
-            d.updateMakable(new Ingredients(ingredients.getIngredientList()));
+            d.updateMakable(ingredients);
         }
     }
 
