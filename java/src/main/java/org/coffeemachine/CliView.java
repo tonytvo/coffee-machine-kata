@@ -1,12 +1,10 @@
 package org.coffeemachine;
 
-import java.util.List;
-
 public class CliView {
 
-    public void askForSelection(List<Ingredient> ingredientList, Drinks drinks) {
+    public void askForSelection(Drinks drinks, Ingredients ingredients) {
         System.out.println("Inventory:");
-        StringBuffer inventory = new Ingredients(ingredientList).getInventory();
+        StringBuffer inventory = ingredients.getInventory();
         System.out.print(inventory);
 
         System.out.println("\nMenu:");

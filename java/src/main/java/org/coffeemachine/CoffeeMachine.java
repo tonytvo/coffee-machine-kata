@@ -10,7 +10,7 @@ public class CoffeeMachine {
         Drinks drinks = Model.drinks;
         Model.initModel(drinks);
         CliView cliView = new CliView();
-        cliView.askForSelection(Model.ingredientList, drinks);
+        cliView.askForSelection(drinks, new Ingredients(Model.ingredientList));
         startIO(cliView, drinks);
     }
 
@@ -35,7 +35,7 @@ public class CoffeeMachine {
                     Model.makeDrink(drinks.getDrink(drinkId), cliView);
                 }
                 drinks.updateMakeable(new Ingredients(Model.ingredientList));
-                cliView.askForSelection(Model.ingredientList, drinks);
+                cliView.askForSelection(drinks, new Ingredients(Model.ingredientList));
             } catch (Exception e) {
                 cliView.displayInvalidSelection(input);
             }
