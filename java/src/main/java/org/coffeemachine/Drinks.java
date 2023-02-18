@@ -16,7 +16,8 @@ public class Drinks {
     }
 
     void makeFor(Ingredients ingredients, int drinkId) {
-        getDrink(drinkId).make(ingredients, recipes.getRecipe(getDrink(drinkId)));
+        getDrink(drinkId);
+        ingredients.updateIngredientsStockPerRecipe(recipes.getRecipe(getDrink(drinkId)));
     }
 
     String getName(int drinkId) {
