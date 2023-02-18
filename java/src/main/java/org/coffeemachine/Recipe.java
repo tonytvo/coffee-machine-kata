@@ -23,7 +23,7 @@ public class Recipe {
         return new Recipe(recipeQuantityByName);
     }
 
-    Integer getQuantity(Ingredient i) {
+    Integer quantityFor(Ingredient i) {
         if (!getQuantityByIngredient().containsKey(i)) return  0;
         return getQuantityByIngredient().get(i);
     }

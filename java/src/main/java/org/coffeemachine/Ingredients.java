@@ -15,7 +15,7 @@ public class Ingredients {
         inventory.reduceFrom(recipe);
         for (Ingredient i : getIngredientList()) {
             if (recipe.contains(i)) {
-                i.setStock(i.getStock() - recipe.getQuantity(i));
+                i.setStock(i.getStock() - recipe.quantityFor(i));
             }
         }
     }
@@ -57,7 +57,7 @@ public class Ingredients {
         double currCost = 0;
         for (Ingredient i : getIngredientList()) {
             if (recipe.contains(i)) {
-                currCost += i.getCost() * recipe.getQuantity(i);
+                currCost += i.getCost() * recipe.quantityFor(i);
             }
         }
         return currCost;
@@ -82,7 +82,7 @@ public class Ingredients {
         public void reduceFrom(Recipe recipe) {
             inventoryByIngredient.keySet().stream()
                     .filter(recipe::contains)
-                    .forEach(ingredient -> inventoryByIngredient.put(ingredient, inventoryByIngredient.get(ingredient) - recipe.getQuantity(ingredient)));
+                    .forEach(ingredient -> inventoryByIngredient.put(ingredient, inventoryByIngredient.get(ingredient) - recipe.quantityFor(ingredient)));
 
         }
     }
